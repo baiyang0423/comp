@@ -1,0 +1,37 @@
+<form method="post" id="addForm">
+    <div class="configure fs-14 bgc-white pd-20 dialog-overflow">
+        <input id="id" name="id" type="hidden" value="" />
+        <input id="pwdId" name="pwdId" type="hidden" value="">
+
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>选择主机：</span>
+                <input class="ipt-m" readonly="readonly" id="add_host_ip" name="add_host_ip" type="text" value="" style="width:50%">
+                <input type="hidden" id="soft_host_id" />
+                <a href="#none" class="color-lightblue mgl-20 config-server" id="selectPwdBtn">选择主机</a>
+            </div>
+        </div>
+
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>目录名称：</span>
+                <input name="add_directoryName" id="add_directoryName" required type="text" value="" style="width: 50%" />
+            </div>
+        </div>
+
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>目录描述：</span>
+                <input name="add_directoryDesc" id="add_directoryDesc" required type="text" value="" style="width: 50%" />
+            </div>
+        </div>
+
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>目录路径：</span>
+                <input name="add_directoryPath" id="add_directoryPath" required type="text" value="" style="width: 50%" />
+            </div>
+        </div>
+
+    </div>
+</form>

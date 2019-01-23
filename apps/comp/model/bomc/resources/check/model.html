@@ -1,0 +1,66 @@
+<div class="block bd-none pdt-0 mgt-0">
+	<div class="block-head">
+	    <span class="tit">选择监控资源</span>
+	</div>
+	<div class="block-body">
+		<div class="pd-10 bgc-grey mg-10 mgt-20">
+			<div class="row bgc-grey pd-25-20 mg-0--20">
+                <span>IP:</span>
+                <input class="ipt-m" id="select_bomc_resource_input_id_ip" type="text" value="" style="width:260px">
+                <span class="mgl-big">类型:</span>
+                <input class="ipt-m" id="select_bomc_resource_input_id_type" type="text" value="" style="width:260px">
+                <button class="btn-org mgl-m active search" id="select_bomc_resource_btn_id_search"   style="width: 100px;">查询</button>
+				<button class="btn-org mgl-m reset" id="select_bomc_resource_btn_id_reset"  style="width: 100px;">重置</button>
+            </div>
+			
+			<!--<div class="clearfix">
+				<div class="layout-container fl pdl-10" style="width: 50%">
+					<div class="col-tit pdr-s">
+						IP:
+					</div>
+					<div class="col-main pdt-10">
+						<input class="ipt-m" id="select_bomc_resource_input_id_ip" type="text" value="" style="width:260px">
+					</div>
+					
+				</div>
+				<div class="layout-container fl pdl-10" style="width: 50%">
+					<div class="col-tit pdr-s">
+						类型:
+					</div>
+					<div class="col-main pdt-10">
+						<input class="ipt-m" id="select_bomc_resource_input_id_type" type="text" value="" style="width:260px">
+					</div>
+				</div>
+			</div>
+			<div class="clearfix">
+				<div class="layout-container fl pdl-10" style="width: 50%">
+					<button class="btn-org active search" id="select_bomc_resource_btn_id_search"   style="width: 100px;">查询</button>
+					<button class="btn-org mgl-m reset" id="select_bomc_resource_btn_id_reset"  style="width: 100px;">重置</button>
+				</div>
+			</div>-->
+		</div>
+		<div class="opt-box mg-m">
+			<div>
+				<table class="ued-table stripe-table-noborder">
+					<colgroup>
+						<col width="10%">
+						<col width="30%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>
+								<label class="checkbox js-checkbox v-m allcheck">
+									<input type="checkbox" >
+				                    <span class="checkbox-bg"></span>
+				                </label>
+							</th>
+							<th>软件类型</th>
+							<th>主机IP</th>
+						</tr>
+					</thead>
+					<tbody id="select_bomc_resource_body"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

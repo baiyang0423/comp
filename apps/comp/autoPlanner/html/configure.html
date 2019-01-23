@@ -1,0 +1,151 @@
+<!--主体内容-->
+<div class="min-width1100">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left relative" style="z-index: 9;">
+		<p class="fs-20 pdl-10">配置流程</p>    		
+	</div>
+	<div class="pd-10 clear animation-right">
+        <div class="pd-10 bgc-white">
+        	<form id="planner_configure_add_form">
+        		<input type="hidden" name="id" id="planner_configure_id" />
+        		<input type="hidden" name="type" id="planner_configure_show_type" value="add" />
+        	<div class="pd-20 clear ui-row">
+                <div class="col-2"><img src="../../../../nresource/comp/pub-ui/images/ce-img.png" alt=""></div>
+                <div class="col-10">
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-6">
+                            <span class="tr pdr-20 mw mw-100"><span style="color:red;width:10px;">*&nbsp;</span>流程标题</span>
+                            <input type="text" name="name" id="planner_name" placeholder="字数30字以内" maxlength="30" style="width: 60%;">
+                        </div>
+                        <div class="col-6">
+                            <span class="tr pdr-20 mw mw-100"><span style="color:red;width:10px;">*&nbsp;</span>执行策略</span>
+                            <input type="text" name="crontab"  id="planner_crontab" placeholder="once:执行一次,corn:周期执行" maxlength="30" style="width: 60%;">
+                        </div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-6">
+                            <span class="tr pdr-20 mw mw-100"><span style="color:red;width:10px;">*&nbsp;</span>责任人</span>
+                            <input type="text" name="taskOwner" id="planner_taskOwner" placeholder="多个描述用；分割" maxlength="30" style="width: 60%;">
+                        </div>
+                         <div class="col-6">
+                            <span class="tr pdr-20 mw mw-100">创建人</span>
+                            <input type="text" name="createUser" id="planner_createUser" placeholder="" maxlength="30" readonly="readonly" style="width: 60%;">
+                        </div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                       	<div class="col-6">
+                            <span class="tr pdr-20 mw mw-100"><span style="color:red;width:10px;">*&nbsp;</span>起始时间</span>
+                            <input type="text" name="beginTime" id="planner_beginTime" class="js-ipt-date" maxlength="30" readonly="readonly" style="width: 60%;">
+                        </div>
+                        <div class="col-6">
+                            <span class="tr pdr-20 mw mw-100"><span style="color:red;width:10px;">*&nbsp;</span>结束时间</span>
+                            <input type="text" name="endTime" id="planner_endTime" class="js-ipt-date" maxlength="30" readonly="readonly" style="width: 60%;">
+                        </div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-6">
+                            <span class="tr pdr-20">是否短信通知</span>
+                            <div class="inline-block" id="planner_smsNotice">
+                                <span class="allr-type" value="YES" style="border-radius: 8px 0 0 8px;">是</span>
+                                <span class="allr-type on" value="NO" style="border-radius: 0 8px 8px 0;">否</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-12">
+                            <span class="tr pdr-20 mw mw-100" style="vertical-align: top;">任务描述</span>
+                            <textarea name="remarks" id="planner_remarks" placeholder="多个描述用；分割" style="width: 80%;height: 100px;" class="pd-10"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+	</div>
+	<div class="pd-10 clear animation-left pdt-0" style="margin-bottom:40px">
+        <div class="pd-10 bgc-white clear">
+            <div class="fl" style="padding-top: 35px;padding-left: 150px;padding-right: 50px;">
+                <span class="start-icon dialog-small3"></span>
+                <p class="tc mgt-10">开始</p>
+            </div>
+            <div class="fl pdr-50" id="planner_configure_line">
+               <!-- <div style="height: 160px;padding-bottom: 50px;padding-top: 80px;"><p class="pei-line2 clear"></p></div>
+                <div style="padding-bottom: 50px;height: 60px;"><p class="pei-line1 on clear"></p></div>
+                <div style="height: 30px;"><p class="pei-line3"></p></div>-->
+            </div>
+            <div class="fl pdb-30" id="planner_configure_step_div">
+                
+            </div>
+        </div>
+	</div>
+    <!--<div class="bottom-button pd-20 tc animation-right">
+        <a href="#none" class="button-blue" id="planner_configure_save">保存</a>
+        <a href="#none" class="button-green mgl-50 js_close">取消</a>
+    </div>-->
+    <div class="dialog-btn bottom-button pd-5 tc animation-right" style="position:fixed;">
+	    <a href="#none" class="button-blue" id="planner_configure_save">保存</a>
+	    <a href="#none" class="button-green mgl-30" id="btn_cancel">取消</a>
+	</div>
+</div>
+<!--小弹窗-->
+<div class="hide" id="dialog_small">
+    <div class="dialog-overflow" style="height: 250px;" id="opeartion_type">
+    	<input type="hidden" name="small_stepId" id="small_stepId" value="" />
+    	<input type="hidden" name="childTask_type" id="childTask_type" value="" />
+        <div class="ui-row mgt-30">
+            <div class="col-6 pd-10">
+                <a href="#none" class="kv-lis on">创建子步骤<span value="step" class="kv-on"></span></a>
+            </div>
+            <div class="col-6 pd-10">
+            	<a href="#none" class="kv-lis">配置参数<span value="configure" class="kv-on"></span></a>
+            </div>
+        </div>
+        <div class="ui-row mgb-10">
+            <div class="col-6 pd-10">
+            	<a href="#none" class="kv-lis">删除步骤<span value="delete" class="kv-on"></span></a>
+            </div>
+            <div class="col-6 pd-10"></div>
+        </div>
+    </div>
+    <div class="dialog-btn bottom-button pd-5 tc">
+        <a href="#none" class="button-blue js_close" id="btn_planner_configure_operation">确认</a>
+        <a href="#none" class="button-green mgl-30 js_close">返回</a>
+    </div>
+</div>
+<!--小弹窗-->
+<div class="hide" id="dialog_small2">
+	<input type="hidden" name="planner_type" id="planner_type" value="" />
+	<input type="hidden" name="small2_parentId" id="small2_parentId" value="" />
+    <div class="dialog-overflow" style="height: 250px;">
+        <div class="sat-one clear ui-row">
+            <div class="col-4 tc pei-box pd-20 pei-tk on">
+                <p class="pei-icon pei-icon1"></p>
+                <p class="mgt-10" value="os_install">操作系统安装</p>
+            </div>
+            <div class="col-4 tc pei-box pd-20 pei-tk">
+                <p class="pei-icon pei-icon2"></p>
+                <p class="mgt-10" value="base_line">基线加固</p>
+            </div>
+            <div class="col-4 tc pei-box pd-20 pei-tk">
+                <p class="pei-icon pei-icon3"></p>
+                <p class="mgt-10" value="inspection">自动巡检</p>
+            </div>
+            <div class="col-4 tc pei-box pd-20 pei-tk">
+                <p class="pei-icon pei-icon4"></p>
+                <p class="mgt-10" value="script">脚本执行</p>
+            </div>
+            <div class="col-4 tc pei-box pd-20 pei-tk">
+                <p class="pei-icon pei-icon6"></p>
+                <p class="mgt-10" value="process">进程启停</p>
+            </div>
+            <div class="col-4 tc pei-box pd-20 pei-tk">
+                <p class="pei-icon pei-icon5"></p>
+                <p class="mgt-10" value="extend">后续扩展类型</p>
+            </div>                     
+        </div>
+    </div>
+    <div class="dialog-btn bottom-button pd-5 tc" >
+        <a href="#none" class="button-blue js_close" id="btn_planner_configure_childTask">确认</a>
+        <a href="#none" class="button-green mgl-30 js_close">取消</a>
+    </div>
+</div>
+<script src="../../../../nresource/comp/pub-ui/js/dialog-plus.js"></script>

@@ -1,0 +1,39 @@
+<!--主体内容-->
+<div class="min-width1100 pd-10">
+	<div class="bdt-box pdl-20 pdt-10 pdb-20 clear bgc-white" style="z-index: 9;">
+		<p class="fs-20 pdl-10">执行结果展示</p>
+		<div class="bgc-white pdt-20 pdb-40 clear">
+			<div class="guo-tit pdl-15 fs-16">任务流</div>
+			<div class="bdb-das clear pdb-30 pdt-20">
+				<div id="planner_show_report_step">
+		                	
+		        </div>
+			</div>
+	   	</div>
+	   	<div class="guo-tit pdl-15 fs-16">主机执行情况</div>
+        <div class="bgc-white pd-20 clear">
+            <div class="bdb-das clear pdb-30 pdt-20">
+                <div class="fl pdl-50 pdr-50"><img src="../../../../nresource/comp/pub-ui/images/xiang-img.png" alt=""></div>
+                <div class="col-9 pdr-50 pdl-50" >
+                    <div class="ui-row clear color-0 bdb-das pdt-10 pdb-10">
+                        <div class="col-3">原子任务名称</div>
+                        <div class="col-3">主机IP</div>
+                        <div class="col-1">总计</div>
+                        <div class="col-1">成功</div>
+                        <div class="col-1">执行中</div>
+                        <div class="col-1">失败</div>
+                    </div>
+                    <div id="planner_show_report_count">
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+    <div class="pdl-20 pdb-20 clear bgc-white" style="margin-bottom:40px">
+    	<div class="guo-tit pdl-15 fs-16">最近十次执行时间</div>
+        <div style="height: 400px;"><div id="brokenLine" style="width:1200px;height:400px;"></div></div>
+    </div>
+</div>
+<div class="dialog-btn bottom-button pd-5 tc animation-right" style="position:fixed;">
+    <a href="#none" class="button-green mgl-50" id="btn_planner_result_close">关闭</a>
+</div>

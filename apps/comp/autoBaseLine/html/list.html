@@ -1,0 +1,79 @@
+<!--主体内容-->
+    <div class="min-width1200">
+    	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+    		<p class="fs-20 pdl-10">基线加固任务</p>
+    		<form id="theForm" class="clear fs-14 alltable-form pdt-20">
+	    		<div class="col-3">
+	    			<span class="mw mw-100 of-title">标题</span>
+	    			<input type="text" id="remarks" name="remarks" />
+	    		</div>
+	    		<div class="col-3">
+		   			<input type="button" value="查询" class="form-btn fb-submit" id="btn_search_task"/>
+		   			<input onclick="javascript:resetForm('theForm');return false;" type="reset" value="重置" class="form-btn fb-reset mgl-10"/>
+			   	</div>
+    		</form>
+    	</div>
+    	<div class="pd-10 clear animation-right">
+    		<div class="alltable-link clear">
+    			<ul class="fr">
+    				<li>
+						<a href="#" class="link-list link-list-new" id="btn_base_line_add">添加</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-modify" id="btn_base_line_edit">修改</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-del" id="btn_base_line_delete">删除</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-open" id="btn_base_line_excute">执行</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-look" id="btn_base_line_report">执行报告</a>
+					</li>
+				</ul>
+    		</div>
+    		<div class="approval-table fs-14">
+	       		<table  id="theTable">
+	       			<colgroup>
+                        <col width="3%">
+                        <col width="15%">
+                        <col width="25%">
+                        <col width="5%">
+                        <col width="5%">
+                        <col width="5%">
+                        <col width="10%">
+                        <col width="7%">
+                        <col width="7%">
+                    </colgroup>
+	       			<tr>
+	       				<th class="bdl-0 w-50">
+	       					<label class="replace-checkbox allcheck">
+	       						<input type="checkbox" />
+	       						<span></span>
+	       					</label>
+	       				</th>
+	       				<th>任务标题</th>
+	       				<th>描述</th>
+						<th>主机数量</th>
+						<th>成功</th>
+						<th>失败</th>
+						<th>执行时间</th>
+						<th>执行状态</th>
+						<!--<th>审核人</th>
+						<th>审核状态</th>-->
+						<th class="bdr-0 w-260">创建人</th>
+	       			</tr>
+	       			<tbody id="tbody_index">
+	            	</tbody>
+	       		</table>	
+       		</div>
+       		<!--分页-->
+       		<div class="page" id="page_index"></div>
+    	</div>
+    </div>
+<script type="text/javascript">
+   require(['/apps/comp/autoBaseLine/js/index.js'],function(task){
+		task.init();
+   });
+</script>

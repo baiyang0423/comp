@@ -1,0 +1,55 @@
+<div class="configure fs-14 bgc-white pd-20 dialog-overflow">
+	<div class="mgb-20 clear">
+		<span class="tit" id="sceneTypeNameInAdd"></span>
+		<input type="hidden" id="sceneTypeIdInAdd" value="" />
+	</div>
+	<div class="mgb-20 clear">
+		<div class="col-12 select-ty">
+				<span>*场景名称：</span>
+				<input class="ipt-m" id="sceneNameInAdd" name="name" type="text" value="" style="width: 50%">
+		</div>
+	</div>
+
+	<div class="mgb-20 clear">
+		<div class="select-ty">
+			<span>*场景描述：</span>
+			<textarea id="sceneRemarkInAdd" name="name" value="" style="width: 50%;height: 80px;"></textarea>
+		</div>
+	</div>
+
+	<!--<div class="mgt-big clearfix pdl-10">
+				<div class="layout-container fl" style="width: 50%">
+					<div class="col-tit">
+						<span class="need inline-block v-m"></span> 选择工单：
+					</div>
+					<div class="col-main pdt-10">
+						<input class="ipt-m" id="taskInAdd" name="name" type="text" value="" style="width:300px">
+					</div>
+					<span onclick="fnSelectTaskList();">选择</span>
+				</div>
+			</div>-->
+
+	<div class="mgb-20 clear">
+		<div class="select-ty">
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<font color="red">*Excel中的参数值一定不能包含,号!</font>
+		</div>
+	</div>
+	<form method="post" id="importForm" enctype="multipart/form-data">
+		<div class="mgb-20 clear">
+			<div class="select-ty">
+					<span>*关联文件：</span>
+					<input type="hidden" value="" name="sceneTypeId" id="upload_sceneTypeId"/>
+					<input type="file" readonly="readonly" name="file" accept=".xls,.xlsx" id="uploadFileInput">
+			</div>
+		</div>
+	</form>
+	<div class="mgb-20 clear">
+		<div class="layout-container fl" style="width: 100%" id="paramForm">
+			<div class="col-main pdt-10" id="theadList"></div>
+		</div>
+	</div>
+</div>
+<form id="downloadForm" action="" >
+	<input type="hidden" value="" name="sceneTypeId" id="down_sceneTypeId"/>
+</form>

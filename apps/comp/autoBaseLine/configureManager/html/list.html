@@ -1,0 +1,72 @@
+<!--主体内容-->
+    <div class="min-width1200">
+    	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+    		<p class="fs-20 pdl-10">基线加固指标库</p>
+    		<form id="theForm" class="clear fs-14 alltable-form pdt-20">
+	    		<div class="col-3">
+	    			<span class="mw mw-100 of-title">指标名称</span>
+	    			<input type="text" id="configure_name_input" name="name" />
+	    		</div>
+	    		<div class="col-3">
+		   			<input type="button" value="查询" class="form-btn fb-submit" id="btn_search"/>
+		   			<input onclick="javascript:resetForm('theForm');return false;" type="reset" value="重置" class="form-btn fb-reset mgl-10"/>
+			   	</div>
+    		</form>
+    	</div>
+    	<div class="pd-10 clear animation-right">
+    		<div class="alltable-link clear">
+    			<ul class="fr">
+    				<li>
+						<a href="#" class="link-list link-list-new" id="btn_base_line_configure_add">添加</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-modify" id="btn_base_line_configure_edit">修改</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-del" id="btn_base_line_configure_delete">删除</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-reset" id="btn_base_line_configure_reset">同步到ansible</a>
+					</li>
+				</ul>
+    		</div>
+    		<div class="approval-table fs-14">
+	       		<table  id="theTable">
+	       			<colgroup>
+                        <col width="3%">
+                        <col width="13%">
+                        <col width="13%">
+                        <col width="13%">
+                        <col width="26%">
+                        <col width="5%">
+                        <col width="8%">
+                        <col width="13%">
+                    </colgroup>
+	       			<tr>
+	       				<th class="bdl-0 w-50">
+	       					<label class="replace-checkbox all-checked">
+	       						<input type="checkbox" />
+	       						<span></span>
+	       					</label>
+	       				</th>
+	       				<th>名称</th>
+	       				<th>代码</th>
+						<th>默认值</th>
+						<th>shell</th>
+						<th>sudo</th>
+						<th>类型</th>
+						<th class="bdr-0 w-260">备注</th>
+	       			</tr>
+	       			<tbody id="tbody_index">
+	            	</tbody>
+	       		</table>	
+       		</div>
+       		<!--分页-->
+       		<div class="page" id="page_index"></div>
+    	</div>
+    </div>
+<script type="text/javascript">
+   require(['/apps/comp/autoBaseLine/configureManager/js/index.js'],function(configure){
+		configure.init();
+   });
+</script>

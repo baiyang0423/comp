@@ -1,0 +1,38 @@
+<div class="min-width1200 main-padd">
+	<div class="mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<form action="#none" class="clear fs-14 alltable-form pdt-20">
+			<div class="col-3">
+				<span class="mw mw-100 of-title">脚本名称</span>
+				<input id="select_script_input_name"  type="text" value="" />
+			</div>
+			<div class="col-3">
+				<input type="button" id="select_script_btn_search" onclick="javascript:void(0);" value="查询" class="form-btn fb-submit" />
+				<input type="button" id="select_script_btn_reset" value="重置" onclick="javascript:void(0);" class="form-btn fb-reset mgl-10" />
+			</div>
+		</form>
+	</div>
+	<div class="pd-10 clear animation-right">
+		<div class="approval-table fs-14">
+			<table>
+				<colgroup>
+					<col width="10%" />
+					<col width="20%" />
+					<col width="20%" />
+					<col width="50%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th class="bdl-0 w-50">选择</th>
+						<th>脚本名称</th>
+						<th>类型</th>
+						<th>脚本内容</th>
+					</tr>
+				</thead>
+				<tbody id="select_script_tbody"></tbody>
+			</table>
+		</div>
+		<div class="pagination clear pd-10 fs-14 bgc-white">
+			<div class="fr" id="select_script_page"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<!--主体内容-->
+<div class="min-width1200 pd-10">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<p class="fs-20 pdl-10">配置操作系统</p>
+		<div class="tc mgt-20 mgb-20"><img src="../../../../nresource/pub-ui/images/ba-jid2.png" alt=""></div>
+	</div>
+	<div class="pd-10 clear animation-right pdb-0">
+		<div class="bdb-0 configure fs-14 bgc-white mgt-0 pdt-40">
+            <div class="mgb-20">
+                <p>
+                    <span>统一安装模板</span>
+                </p>
+                <select style="min-width: 240px;" class="icon-select" id="install_select_templet">
+    				<!--<option value="1">版本1</option>
+    				<option value="2">版本2</option>-->
+    				
+    			</select>
+    			<input type="button" value="设定" class="form-btn fb-submit" id="btn_templet_setting"/>
+            </div>
+            <div class="mgb-20">
+                <p>
+                    <span>统一操作系统</span>
+                </p>
+                <select style="min-width: 240px;" class="icon-select" id="install_select_os">
+    			</select>
+    			<input type="button" value="设定" class="form-btn fb-submit" id="btn_configure_setting"/>
+            </div>
+        </div>
+	</div>
+	<div class="pd-10 clear animation-left">
+		<div class="approval-table fs-14" style="margin-bottom:40px">
+       		<table id="install_host_list_table_2">
+       			<colgroup>
+                    <col width="30%">
+                    <col width="35%">
+                    <col width="35%">
+                </colgroup>
+       			<tr>
+       				<th>主机IP</th>
+       				<th>安装模板</th>
+       				<th class="bdr-0 w-260">操作系统版本</th>
+       			</tr>
+       			<tbody id="tbody_install_confiure_2">
+            	</tbody>
+       		</table>	
+   		</div>
+   		<!--分页-->
+	</div>
+</div>
+<div class="dialog-btn bottom-button pd-5 tc animation-right" style="position:fixed;">
+	<a href="#none" class="button-blue" id="btn_install_configure_2_save">保存</a>
+	<a href="#none" class="button-green mgl-50 js_close" id="btn_install_configure_2_prev">上一步</a>
+</div>

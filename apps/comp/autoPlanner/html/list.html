@@ -1,0 +1,71 @@
+<!--主体内容-->
+    <div class="min-width1200">
+    	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+    		<p class="fs-20 pdl-10">任务编排</p>
+    		<form id="planner_task_form" method="post" action="" class="clear fs-14 alltable-form pdt-20">
+	    		<div class="col-3">
+	    			<span class="mw mw-100 of-title">标题</span>
+	    			<input type="text" id="planner-name" name="name" />
+	    		</div>
+	    		<div class="col-3">
+		   			<input type="button" value="查询" class="form-btn fb-submit" id="btn_search_planner_task"/>
+		   			<input onclick="javascript:resetForm('planner_task_form');return false;" type="reset" value="重置" class="form-btn fb-reset mgl-10"/>
+			   	</div>
+    		</form>
+    	</div>
+    	<div class="pd-10 clear animation-right">
+    		<div class="alltable-link clear">
+    			<ul class="fr">
+    				<li>
+						<a href="#" class="link-list link-list-new" id="btn_planner_add">添加</a>
+					</li>
+					<!--<li>
+						<a href="#" class="link-list link-list-modify" id="btn_planner_edit">修改</a>
+					</li>-->
+					<li>
+						<a href="#" class="link-list link-list-del" id="btn_planner_delete">删除</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-open" id="btn_planner_excute">执行</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-stop" id="btn_planner_stop">暂停</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-open" id="btn_planner_excute_one">单次执行</a>
+					</li>
+					<li>
+						<a href="#" class="link-list link-list-look" id="btn_planner_report">执行报告</a>
+					</li>
+				</ul>
+    		</div>
+    		<div class="approval-table fs-14">
+	       		<table  id="theTable">
+	       			<tr>
+	       				<th class="bdl-0 w-50">
+	       					<label class="replace-checkbox allcheck">
+	       						<input type="checkbox" />
+	       						<span></span>
+	       					</label>
+	       				</th>
+	       				<th>流程标题</th>
+	       				<th>调度</th>
+	       				<th>拥有者</th>
+	       				<th>执行状态</th>
+	       				<th>任务责任人</th>
+	       				<!--<th>审核状态</th>-->
+	       				<th class="bdr-0 w-260">创建时间</th>
+	       			</tr>
+	       			<tbody id="tbody_index">
+	            	</tbody>
+	       		</table>	
+       		</div>
+       		<!--分页-->
+       		<div class="page" id="page_index"></div>
+    	</div>
+    </div>
+<script type="text/javascript">
+    require(['/apps/comp/autoPlanner/js/index.js'],function(planner){
+   		planner.init();
+    });
+</script>

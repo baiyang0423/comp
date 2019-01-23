@@ -1,0 +1,82 @@
+<!--主体内容-->
+<div class="min-width750">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left relative" style="z-index: 9;">
+		<p class="fs-20 pdl-10">增加</p>    		
+	</div>
+	<div class="pd-10 clear animation-right">
+        <div class="pd-10 bgc-white">
+        	<form id="configure_add_form">
+        	<div class="pdl-20 clear ui-row">
+        		<input type="hidden" name="id" id="configure_id" />
+                <div class="col-10">
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-12">
+                            <span class="tr pdr-20 mw mw-100"><span style="color:red;width:10px;">*&nbsp;</span>指标名称</span>
+                            <input type="text" name="name" id="configure_name" placeholder="字数30字以内" maxlength="30" style="width: 60%;">
+                        </div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-12">
+                            <span class="tr pdr-20 mw mw-100"><span style="color:red;width:10px;">*&nbsp;</span>代码</span>
+                            <input type="text" name="code"  id="configure_code" placeholder="字数30字以内" maxlength="30" style="width: 60%;">
+                        </div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-12">
+                            <span class="tr pdr-20 mw mw-100"><span style="color:red;width:10px;">*&nbsp;</span>默认值</span>
+                            <input type="text" name="defaultValues" id="configure_defaultValues" placeholder="" style="width: 60%;">
+                        </div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-12">
+                            <span class="tr pdr-20 mw mw-100" style="vertical-align: top;"><span style="color:red;width:10px;">*&nbsp;</span>shell</span>
+                            <textarea name="shell" id="configure_shell" style="width: 80%;height: 80px;" class="pd-10"></textarea>
+                        </div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                    	<!--<div class="col-6">
+	                    	<span class="tr pdr-20 mw mw-100">类型</span>
+			                <select style="min-width: 170px;" class="icon-select" id="select_configure_types">
+			    				<option value="BASE">基线加固</option>
+			    				<option value="INSPECTION ">巡检</option>
+			    			</select>
+                    	</div>-->
+                    	<div class="col-6">
+	                    	<span class="tr pdr-20 mw mw-100">分类</span>
+			                <select style="min-width: 170px;" class="icon-select" id="select_configure_classificationId">
+			    			</select>
+                    	</div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-12">
+                        	<span class="tr pdr-20 mw mw-100">sudo</span>
+			                <div class="inline-block" id="radio_hasSudo">
+				    			<span class="allr-type" name="hasSudo" value="YES" style="border-radius: 8px 0 0 8px;">是</span>
+				    			<span class="allr-type on" name="hasSudo" value="NO" style="border-radius: 0 8px 8px 0;">否</span>
+				    		</div>
+
+                        </div>
+                    </div>
+                    <div class="ui-row configure bdb-0 mgt-0">
+                        <div class="col-12">
+                            <span class="tr pdr-20 mw mw-100" style="vertical-align: top;">任务描述</span>
+                            <textarea name="remarks" id="configure_remarks" placeholder="多个描述用；分割" style="width: 80%;height: 80px;" class="pd-10"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+	</div>
+    <div class="dialog-btn bottom-button pd-5 tc animation-right" style="position:fixed;">
+	    <a href="#none" class="button-blue" id="btn_configure_save">保存</a>
+	    <a href="#none" class="button-green mgl-30 close_dialog">取消</a>
+	</div>
+</div>
+<script>
+	$(".allr-type").click(function(event) {
+    	/* Act on the event */
+    	$(this).addClass('on');
+    	$(this).siblings('span').removeClass('on');
+    });
+</script>

@@ -1,0 +1,90 @@
+<!--主体内容-->
+<div class="min-width1200 pd-10">
+	<form action="#" id="base_line_add1_form" >
+	<input type="hidden" name="taskId" id="taskId" />
+	<input type="hidden" id="operaType" />
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<p class="fs-20 pdl-10">基线加固</p>
+		<div class="tc mgt-20 mgb-20"><img src="../../../../nresource/comp/pub-ui/images/ba-jid1.png" alt=""></div>
+	</div>
+	<div class="pd-10 clear animation-right pdb-0">
+		<div class="bdb-0 configure fs-14 bgc-white mgt-0 pdt-40">
+            <div class="mgb-20">
+                <p>
+                    <span><span style="color:red;width:10px;">*&nbsp;</span>加固标题</span>
+                </p>
+                <input type="text" name="title" id="configure_title" placeholder="字数30字以内" maxlength="30" style="width: 80%;">
+            </div>
+            <div class="mgb-20">
+                <p>
+                    <span><span style="color:red;width:10px;">*&nbsp;</span>责任人</span>
+                </p>
+                <input type="text" placeholder="" name="personLiable" id="configure_personLiable" style="width: 80%;">
+            </div>
+            <div class="mgb-20">
+                <p>
+                    <span class="relative" style="top:-80px;"><span style="color:red;width:10px;">*&nbsp;</span>描述</span>
+                </p>
+                <textarea name="remarks" id="configure_remarks" placeholder="多个描述用中文；分割" style="width: 80%;height: 100px;" class="pd-10"></textarea>
+            </div>
+            <div class="mgb-20">
+                <p>
+                    <span>是否短信通知</span>
+                </p>
+                <div class="inline-block">
+	    			<span class="allr-type" name="smsNotice" value="YES" style="border-radius: 8px 0 0 8px;">是</span>
+	    			<span class="allr-type on" name="smsNotice" value="NO" style="border-radius: 0 8px 8px 0;">否</span>
+	    		</div>
+            </div>
+        </div>
+	</div>
+    </form>
+	<div class="pd-10 clear animation-left">
+		<div class="alltable-link clear">
+		    <p class="fl pdt-10 pdl-10" id="host_count_show">当前配置主机数量：0台</p>
+			<ul class="fr">
+				<li>
+					<a href="#none" class="link-list link-list-new" id="btn_base_line_add_host">添加主机</a>
+				</li>
+				<!--<li>
+					<a href="#none" class="link-list link-list-off" title="导入主机">导入主机</a>
+				</li>-->
+				<li>
+					<a href="#none" class="link-list link-list-del" id="btn_base_line_delete_all_host" title="全部删除">全部删除</a>
+				</li>
+			</ul>
+		</div>
+		<div class="approval-table fs-14" style="margin-bottom:40px">
+       		<table id="base_houst_host_list_table">
+       			<tr>
+       				<th class="bdl-0 w-50 none">
+       					<label class="replace-checkbox all-checked">
+       						<input type="checkbox" />
+       						<span></span>
+       					</label>
+       				</th>
+       				<th>主机IP</th>
+       				<th>用户名</th>
+       				<th>密码状态</th>
+       				<th>sudo账号</th>
+       				<th>sudo密码</th>
+       				<th class="bdr-0 w-260">操作</th>
+       			</tr>
+       			<tbody id="tbody_base_confiure_1">
+            	</tbody>
+       		</table>	
+   		</div>
+   		<!--分页-->
+	</div>
+</div>
+<div class="dialog-btn bottom-button pd-5 tc animation-right" style="position:fixed;">
+	<a href="#none" class="button-blue" id="btn_base_configure_1_next">下一步</a>
+	<a href="#none" class="button-green mgl-50" id="btn_base_configure_1_cancel">取消</a>
+</div>
+<script>
+	$(".allr-type").click(function(event) {
+    	/* Act on the event */
+    	$(this).addClass('on');
+    	$(this).siblings('span').removeClass('on');
+    });
+</script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--#include file="/npage/comp/link.html" -->
+		<script src="/baseop/appframe/component/buss/open/ztree/zTree_v3/js/jquery.ztree.all.js"></script>
+		<title>脚本管理</title>
+		<style type="text/css">
+			.hidden-content {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="min-width1200 main-padd" name="none">
+			<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+					<p class="fs-20 pdl-10">脚本管理</p>
+					<form action="#none" id="fm_script" class="clear fs-14 alltable-form pdt-20">
+						<div class="col-3">
+							<span class="mw mw-100 of-title">脚本名称</span>
+							<input name="name" type="text" value="" />
+						</div>
+						<div class="col-3">
+							<span mw mw-100 of-title>脚本类型：</span>
+							<select  name="typeId" id="script_type" style="min-width: 160px;" class="icon-select">
+								<option value="">请选择</option>
+							</select>
+						</div>
+						<div class="col-3">
+							<input type="button" id="btn_search_script" onclick="javascript:void(0);" value="查询" class="form-btn fb-submit" />
+							<input type="button" id="btn_reset_script" value="重置" onclick="javascript:void(0);"  class="form-btn fb-reset mgl-10" />
+						</div>
+					</form>
+			</div>
+			<div class="pd-10 clear animation-right">
+				<div class="alltable-link clear">
+					<ul class="fr">
+						<li>
+							<a href="#none" id="btn_script_add" class="link-list link-list-new">新增</a>
+						</li>
+						<li>
+							<a href="#none"  id="btn_script_edit" class="link-list link-list-modify">修改</a>
+						</li>
+						<li>
+							<a href="#none" id="btn_script_del" class="link-list link-list-del">删除</a>
+						</li>
+					</ul>
+				</div>
+				<div class="approval-table fs-14">
+					<table>
+						<thead>
+							<tr>
+								<th class="bdl-0 w-50">
+									<label class="replace-checkbox allcheck">
+			       						<input type="checkbox" />
+			       						<span></span>
+			       					</label>
+								</th>
+								<th>脚本名称</th>
+								<th>脚本内容</th>
+								<th>类型</th>
+								<th>细分类型</th>
+								<th>脚本组</th>
+								<th>创建人</th>
+								<th>更新时间</th>
+							</tr>
+						</thead>
+						<tbody id="tbody_script"></tbody>
+					</table>
+				</div>
+				<!--分页-->
+				<div class="pagination clear pd-10 fs-14 bgc-white">
+					<div class="fr" id="page_script"></div>
+				</div>
+			</div>
+		</div>
+		
+		<!--#include file="/apps/comp/script/html/add.html" -->
+		<!--#include file="/apps/comp/script/html/addScriptLink.html" -->
+		<!--#include file="/apps/comp/script/html/addScriptGroup.html" -->
+		<!--#include file="/apps/comp/script/html/edit.html" -->
+		<!--#include file="/apps/comp/script/html/editScriptLink.html" -->
+		<!--#include file="/apps/comp/script/html/editScriptGroup.html" -->
+		<!--#include file="/apps/comp/script/html/show.html" -->
+		<!--加载弹窗-->
+		<!--#include file="/apps/comp/model/tip/tip.html" -->
+	</body>
+	<script>
+		require(['/apps/comp/script/index.js'],function(index){
+			index.init();
+		});
+	</script>
+
+</html>

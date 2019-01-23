@@ -1,0 +1,98 @@
+<!-- 新增脚本 -->
+<div class="none" id="rm_script_add">
+	<div class="block bd-none pdt-0 mgt-0">
+             <div class="block-head">
+                 <span class="tit">新增脚本</span>
+             </div>
+             <form action="${pageContext.request.contextPath}/script/type" method="post" enctype="multipart/form-data" id="rm_script_add_form">
+             <div class="block-body">
+                 <div class="mgt-10 clearfix pdl-10">
+                     <div class="layout-container fl" style="width: 50%">
+                        <div class="col-tit">
+                            <span class="need inline-block v-m">*</span>
+                            脚本名称：
+                        </div>
+                        <div class="col-main pdt-10">
+                            <input required class="ipt-m" type="text" value="" name="name" id="script_name_add" style="width:300px">
+                        </div>
+                    </div>
+                    <div class="layout-container fl" style="width: 50%">
+                        <div class="col-tit">
+                            <span class="need inline-block v-m">*</span>
+                            类型：
+                        </div>
+                        <div class="col-main pdt-10">
+                            <select required class="form-select-m" id="script_type_add" style="width: 300px">
+                            </select>                                    
+                        </div>
+                    </div>
+                </div>
+                <div class="mgt-m clearfix pdl-10">
+                    <div class="layout-container fl" style="width: 50%">
+                        <div class="col-tit">
+                            <span class="need inline-block v-m">*</span>
+                            细分类型：
+                        </div>
+                        <div class="col-main pdt-10">
+                            <select required class="form-select-m" name="typeId" id="script_child_type_add" style="width: 300px">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>               
+                    </div>
+                </div>
+                <div class="mgt-m clearfix pdl-10">
+                    <div class="layout-container fl" style="width: 100%">
+                        <div class="col-tit">
+                            <span class="need inline-block v-m">*</span>
+                            脚本内容：
+                        </div>
+                        <div class="col-main clearfix pdt-10">
+                            <textarea required class="textarea fl pd-10" name="content" id="script_content_add" style="width: 90%;"></textarea>
+                        	<input class="btn-org active fl mgl-m" style="width: 60px;" id="btn_script_sel" value="选择" readonly="true"> 
+                        	<input type="file" hidden="hidden" multiple="multiple" name="add_button" id="file_select"> 
+                        </div>
+                        <div class="none">
+                            <input class="ipt-m" type="text" name="filename"  id="script_add_fileName" style="width:300px">
+                        </div>  
+                    </div>
+                </div>
+                <div class="mgt-m clearfix pdl-10">
+                    <div class="layout-container fl" style="width: 50%">
+                        <div class="col-tit">
+                            备注：
+                        </div>
+                        <div class="col-main pdt-10">
+                            <input class="ipt-m" type="text" name="remark" value="" id="script_remark_add" style="width:300px">
+                        </div>
+                    </div>
+                    <div class="layout-container fl" style="width: 50%">
+                        <div class="col-tit">
+                            关联脚本：
+                        </div>
+                        <div class="col-main pdt-10 clearfix">
+                            <input class="ipt-m js_self fl" type="text" value="" id="script_add_link" style="width:80%">
+                        </div>
+                        <div class="none">
+                            <input name="linkScriptId" type="text" value="" id="script_add_link_ids">
+                        </div>
+                    </div>
+                </div>
+                <div class="mgt-m clearfix pdl-10">
+                    <div class="layout-container fl" style="width: 100%">
+                        <div class="col-tit">
+                        <span class="need inline-block v-m">*</span>
+                            脚本组：
+                        </div>
+                        <div class="col-main pdt-10">
+                            <input required class="ipt-m" type="text" value="" name="scriptGroupName" id="script_add_group" style="width:300px">
+                        </div>
+                        <div class="none">
+                            <input type="text" name="groupId" value="" id="script_add_group_id" >
+                        </div>
+                    </div>
+                </div>
+	          </form>
+            </div>
+        </div>
+    </div>
+</div>

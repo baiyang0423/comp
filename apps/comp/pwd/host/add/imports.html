@@ -1,0 +1,35 @@
+<div class="min-width600 pd-10">
+	<div class="block-head">
+		<span class="tit" id="importTit"></span>
+	</div>
+	<form method="post" id="importForm" enctype="multipart/form-data">
+		<div class="pdt-30 bdt-box fs-14" style="height: 200px;">
+			<div class="clear pdt-30 mgb-20">
+				<div class="col-1 select-ty">
+				</div>
+				<div class="col-8 ">
+					<span style="font-size:20px">关联文件：</span>
+					<div class="col-main pdt-10">
+						<input type="hidden" name="userId" id="uploadUserid" />
+						<input  type="file" readonly="readonly" name="file" 
+							style="width:300px;padding: 7px; align-items: baseline;text-align: start;">
+					</div>
+					<span>&emsp;</span>
+				</div>
+				<div class="col-2 pdt-50">
+					<a href="#none" class="a-download inline-block mgl-20" id="downTempleteBtn">模版样例下载</a>
+				</div>
+			</div>
+		</div>
+	</form>
+	
+	<form method="post" id="downloadForm">
+		<input type="hidden" name="type" id="templetType" />
+	</form>
+</div>
+<div class="bottom-button pd-5 tc">
+	<a href="#" id="importPwdSureBtn" class="button-blue">导入</a>
+	<a href="#none" id="importPwdCanalBtn" class="button-green mgl-30 js_close">返回</a>
+</div>
+
+

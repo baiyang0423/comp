@@ -1,0 +1,44 @@
+<div class="min-width1100 main-padd">
+	<div class="mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<form action="#none" class="clear fs-14 alltable-form pdt-20">
+			<div class="col-3">
+				<span class="mw mw-100 of-title">用户名</span>
+				<input id="select_pwd_host_radio_input_name"  type="text" value="" />
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">IP地址</span>
+				<input id="select_pwd_host_radio_input_ip" type="text" value="" />
+			</div>
+			<div class="col-3 pdl-30">
+				<input type="button" id="select_pwd_host_radio_btn_search" onclick="javascript:void(0);" value="查询" class="form-btn fb-submit" />
+				<input type="button" id="select_pwd_host_radio_btn_reset" value="重置" onclick="javascript:void(0);" class="form-btn fb-reset mgl-10" />
+			</div>
+		</form>
+	</div>
+	<div class="pd-10 clear animation-right">
+		<div class="approval-table fs-14">
+			<table class="ued-table stripe-table-noborder">
+				<colgroup>
+					<col width="10%">
+					<col width="30%">
+					<col width="30%">
+					<col width="30%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>选择</th>
+						<th>IP地址</th>
+						<th>主机名称</th>
+						<th>用户名</th>
+					</tr>
+				</thead>
+				<tbody id="select_pwd_host_radio_tbody">
+
+				</tbody>
+			</table>
+		</div>
+		<div class="pagination clear pd-10 fs-14 bgc-white">
+			<div class="fr" id="select_pwd_host_radio_page"></div>
+		</div>
+	</div>
+</div>

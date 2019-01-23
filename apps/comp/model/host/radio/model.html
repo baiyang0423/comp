@@ -1,0 +1,46 @@
+<div class="block bd-none pdt-0 mgt-0">
+	<div class="block-head">
+		<span class="tit">选择主机</span>
+	</div>
+	<div class="block-body">
+		<div class="row query_box">
+			<div class="col-4">
+				<span>主机名称：</span> <input class="ipt-m" type="text" id="select_host_input_name" value="" style="width: 200px">
+			</div>
+			<div class="col-4">
+				<span>IP地址：</span> <input class="ipt-m" id="select_host_input_ip" type="text" value="" style="width: 200px">
+			</div>
+			<div class="col-4">
+				<span>主机类型：</span>
+				<select class="form-select-m" id="select_host_input_type" style="width: 200px">
+					<option value="">请选择</option>
+					<option value="HOST">物理机</option>
+					<option value="VIRTUAL_MACHINE">虚拟机</option>
+				</select>
+			</div>
+			<div class="col-12 tc mgt-big">
+				<button type="button" class="btn-org mgl-m active" style="width: 100px;" id="select_host_btn_search">查询</button>
+				<button type="button" class="btn-org mgl-m" style="width: 100px;" id="select_host_btn_reset">重置</button>
+			</div>
+		</div>
+		<div class="opt-box mgt-m">
+			<table class="ued-table stripe-table-noborder">
+				<colgroup>
+					<col width="10%">
+					<col width="90%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>选择</th>
+						<th>IP地址</th>
+					</tr>
+				</thead>
+				<tbody id="select_host_tbody">
+
+				</tbody>
+			</table>
+		</div>
+		<div class="page" id="select_host_page">
+		</div>
+	</div>
+</div>

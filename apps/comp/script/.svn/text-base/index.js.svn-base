@@ -1,0 +1,632 @@
+define(['commonutil','ompage','pluspop'],function(ajaxUtil,page,pluspop){
+	var obj = {};
+	
+	/**
+	 * 初始化
+	 */
+	function init(){
+		initType();
+		search(1,true);
+		//查询按钮
+		$('body').delegate('#btn_search_script','click', function(event) {
+			search(1,true);
+		});			
+		//重置按钮
+		$('body').delegate('#btn_reset_script','click', function() {
+			$('#fm_script')[0].reset();
+		});
+		//新增脚本类型切换
+		$('body').delegate('#script_type_add','change', function() {
+			addScriptTypeChange();
+		});
+		//修改脚本类型切换
+		$('body').delegate('#script_type_edit','change', function() {
+			editScriptTypeChange();
+		});
+		//文件选择获得文件内容
+		$('body').delegate('input[name=add_button]','change', function() {
+			selFile();
+		});
+		//修改脚本 文件选择获得文件内容
+		$('body').delegate('input[name=edit_button]','change', function() {
+			selFileEdit();
+		});
+		//新增脚本 脚本关联
+		$('body').delegate('#script_add_link','click', function() {
+			addScriptLink();
+		});
+		//新增脚本 脚本组
+		$('body').delegate('#script_add_group','click', function() {
+			addScriptGroup();
+		});
+		//修改脚本(脚本详情)
+		$('body').delegate('.show-script','click', function(event) {
+			showScript(event);
+		});
+		//修改脚本 选择按钮
+		$('body').delegate('#btn_script_sel_edit','click', function() {
+			btnScriptSelEdit();
+		});
+		//修改脚本 脚本关联
+		$('body').delegate('#script_edit_link','click', function() {
+			editScriptLink();
+		});
+		//修改脚本 脚本组
+		$('body').delegate('#script_edit_group','click', function() {
+			editScriptGroup();
+		});
+
+		//增加按钮
+		$('#btn_script_add').click(btnScriptAdd);
+		//选择上传文件按钮
+		$('#btn_script_sel').click(btnScriptSel);
+		//修改按钮
+		$('#btn_script_edit').click(btnScriptEdit);
+		//删除按钮
+		$('#btn_script_del').click(btnScriptDel);
+	}
+	
+	/**
+	 * 初始化脚本类型
+	 */
+	function initType(){
+		ajaxUtil.postrest(compWsg.script_type, function(data) {
+			require(['./tpl/scriptType.tpl'], function(fun) {	
+				$("#script_type").html(fun(data.data));
+			});	
+		});			
+	}
+	
+	/**
+	 * 查询脚本列表
+	 */
+	function search(currentPage,first){				
+		var para = page.getPara('fm_script',currentPage);
+		ajaxUtil.callrest(compWsg.script_mySearch, function(data) {
+			require(['./tpl/list.tpl'], function(fun) {
+				$("#tbody_script").html(fun(data.data));
+				initTable();
+				if (first) {					
+					page.init('page_script',data.page,search);		
+				}
+			});
+		}, para);			
+	}
+	
+	/**
+	 * 新增
+	 */
+	function btnScriptAdd(){
+		$("#rm_script_add_form").initForm();
+		$("#rm_script_add_form")[0].reset();
+		
+		var selfDialog = dialog({
+			id: 'rm_script_add_dialog',
+			title: '',
+			content: $('#rm_script_add')[0],
+			width: 1000,
+			height:450,
+			okValue: '确定',
+			ok: save,
+			cancelValue: '关闭',
+			cancel: function() {}
+		}).showModal();
+		
+		ajaxUtil.postrest(compWsg.script_add_type, function(data) {
+			require(['./tpl/scriptType.tpl'], function(fun) {
+				if (data.retCode == RetCode.SUCCESS) {
+					require(['./tpl/scriptType.tpl'], function(fun) {
+						$("#script_type_add").html(fun(data.data));		
+					});
+					require(['./tpl/scriptType.tpl'], function(fun) {
+						$("#script_child_type_add").html(fun(data));			
+					});
+				} else {
+					pluspop.alert("类型显示失败");					
+				}
+			});
+		});	
+	}
+	
+	/**
+	 * 新增类型切换事件(细分类型)
+	 */
+	function addScriptTypeChange(){
+		var id = $("#script_type_add").val();	
+		var para = {'id':id};
+		ajaxUtil.postrest(compWsg.script_add_child_type, function(data) {	
+			if (data.retCode == RetCode.SUCCESS) {
+				require(['./tpl/scriptType.tpl'], function(fun) {
+					$("#script_child_type_add").html(fun(data.data));			
+				});
+			} else {
+				pluspop.alert("细分类型显示失败");					
+			}
+		},para);
+	}
+	
+	/**
+	 * 选择上传文件的按钮
+	 */
+	function btnScriptSel(){
+		$("#file_select").click();
+	}
+	
+	/**
+	 * 选择上传文件后的操作
+	 */
+	function selFile(){
+		var files = $("#file_select").prop('files');
+	 	var selectedFile = files[0];
+	 	var fileName = selectedFile.name;
+		var type = selectedFile.type;
+		var fileString = "";
+		if(type == "text/xml"){
+	    	var reader = new FileReader();//核心操作
+		    reader.readAsText(selectedFile,"UTF-8");//读取文件的内容
+		    reader.onload = function(evt){
+		    fileString = evt.target.result;
+		    $("#script_add_fileName").val(fileName);
+		    $("#script_content_add").val(fileString);
+		    }
+	    }else{
+	    	var reader = new FileReader();//核心操作
+		    reader.readAsText(selectedFile,"GBK");//读取文件的内容
+		    reader.onload = function(evt){
+		    fileString = evt.target.result;
+		    $("#script_add_fileName").val(fileName);
+		    $("#script_content_add").val(fileString);
+		    }
+	    }
+	}
+	
+	/**
+	 * 脚本新增 脚本关联
+	 */
+	function addScriptLink(){
+		
+		var selfDialog = dialog({
+			id: 'script_add_link_dg_dialog',
+			title: '',
+			content: $('#script_add_link_dg')[0],
+			width: 400,
+			height:350,
+			okValue: '确定',
+			ok: saveScriptLink,
+			cancelValue: '关闭',
+			cancel: function() {}
+		}).showModal();
+	
+		var setting = {
+                view: {
+                    showLine: false,
+                    /*showIcon: false,*/
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+            };
+		
+			ajaxUtil.postrest(compWsg.script_add_link, function(data) {
+				var zNodes = data.data.entity;
+				$.fn.zTree.init($("#script_link_ztree"), setting, zNodes);
+			});
+	}
+	
+	/**
+	 * 脚本新增 脚本关联选择确定
+	 */
+	function saveScriptLink(){
+		var treeObj = $.fn.zTree.getZTreeObj("script_link_ztree");
+		nodes=treeObj.getSelectedNodes();
+		var name = "";
+		var ids = "";
+		for(var i=0;i<nodes.length;i++){
+			if(i < nodes.length - 1){
+			   if(nodes[i].id.indexOf("_")>0||nodes[i].level==0){
+				  pluspop.alert("请正确选择关联脚本");
+				  return false;
+			   }
+			   name += nodes[i].name + ",";
+		       ids  += nodes[i].id + ",";
+			}else{
+				if(nodes[i].id.indexOf("_")>0||nodes[i].level==0){
+				  pluspop.alert("请正确选择关联脚本");
+				  return false;
+			   }
+			   name += nodes[i].name;
+	           ids  += nodes[i].id;	
+			}
+        }
+		
+		$("#script_add_link").val(name);
+		$("#script_add_link_ids").val(ids);
+	}
+	
+	
+	/**
+	 * 脚本新增 关联组
+	 */
+	function addScriptGroup(){
+		
+		var selfDialog = dialog({
+			id: 'script_add_group_dg_dialog',
+			title: '',
+			content: $('#script_add_group_dg')[0],
+			width: 400,
+			height:350,
+			okValue: '确定',
+			ok: saveScriptGroup,
+			cancelValue: '关闭',
+			cancel: function() {}
+		}).showModal();
+	
+		var setting = {
+                view: {
+                    showLine: false,
+                    /*showIcon: false,*/
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+            };
+		
+			ajaxUtil.postrest(compWsg.script_add_group, function(data) {
+				var zNodes = data.data.entity;
+				$.fn.zTree.init($("#script_group_ztree"), setting, zNodes);
+			});
+	}
+	
+	/**
+	 * 新增脚本 脚本组关联
+	 */
+	function saveScriptGroup(){
+		var treeObj = $.fn.zTree.getZTreeObj("script_group_ztree");		
+		nodes=treeObj.getSelectedNodes();
+		if(nodes.length != 1){
+			pluspop.alert("请正确选择关联组");
+			return false;
+		}
+		if(nodes[0].isParent){
+			pluspop.alert("请正确选择关联组");
+			return false;
+		}
+		var name = nodes[0].name;
+		var id = nodes[0].id;
+		$("#script_add_group").val(name);
+		$("#script_add_group_id").val(id);
+	}
+	
+	/**
+	 * 新增保存
+	 */
+	function save(){
+		if ($("#rm_script_add_form").valid()) {
+			var para = $("#rm_script_add_form").serializeObject();
+			delete para.scriptGroupName;
+			//如果是脚本文件需要上传到服务器
+			if(para.typeId.indexOf("FILE") != -1){
+				ajaxUtil.postrest(compWsg.script_add_file, function(data) {
+					if (data.retCode == RetCode.SUCCESS) {
+						pluspop.alert("脚本新增成功");
+						search(1,true);
+					} else {
+						pluspop.alert("脚本新增失败");					
+					}
+				},para);
+			}else{
+				ajaxUtil.postrest(compWsg.script_add, function(data) {
+					if (data.retCode == RetCode.SUCCESS) {
+						pluspop.alert("脚本新增成功");
+						search(1,true);
+					} else {
+						pluspop.alert("脚本新增失败");					
+					}
+				},para);
+			}
+		}else{
+			return false;
+		}
+	}
+	
+	/**
+	 * 修改
+	 */
+	function btnScriptEdit(){
+		if ($('input[name="cb_script"]:checked').size()==1) {
+			
+			var selfDialog = dialog({
+				id: 'rm_script_edit_dialog',
+				title: '',
+				content: $('#rm_script_edit')[0],
+				width: 1000,
+				height:450,
+				okValue: '确定',
+				ok: update,
+				cancelValue: '关闭',
+				cancel: function() {}
+			}).showModal();
+			
+			var para ={'id':$('input[name="cb_script"]:checked').val()};
+			ajaxUtil.postrest(compWsg.script_show, function(data) {
+				console.log(data);
+				if (data.retCode == RetCode.SUCCESS) {
+					require(['./tpl/edit.tpl'], function(fun) {
+						$("#rm_script_edit").html(fun(data.data));		
+					});
+				} else {
+					pluspop.alert("修改回显失败");					
+				}
+			},para);
+		}else{
+			pluspop.alert("请选择一个任务");
+			return false;
+		}
+	}
+	
+	/**
+	 * 修改类型切换事件(细分类型)
+	 */
+	function editScriptTypeChange(){
+		var id = $("#script_type_edit").val();	
+		var para = {'id':id};
+		ajaxUtil.postrest(compWsg.script_add_child_type, function(data) {	
+			if (data.retCode == RetCode.SUCCESS) {
+				require(['./tpl/scriptType.tpl'], function(fun) {
+					$("#script_child_type_edit").html(fun(data.data));			
+				});
+			} else {
+				pluspop.alert("细分类型显示失败");					
+			}
+		},para);
+	}
+	
+	/**
+	 * 选择上传文件的按钮
+	 */
+	function btnScriptSelEdit(){
+		$("#file_select_edit").click();
+	}
+	
+	/**
+	 * 选择上传文件后的操作
+	 */
+	function selFileEdit(){
+		var files = $("#file_select_edit").prop('files');
+	 	var selectedFile = files[0];
+	 	var fileName = selectedFile.name;
+		var type = selectedFile.type;
+		var fileString = "";
+		if(type == "text/xml"){
+	    	var reader = new FileReader();//核心操作
+		    reader.readAsText(selectedFile,"UTF-8");//读取文件的内容
+		    reader.onload = function(evt){
+		    fileString = evt.target.result;
+		    $("#script_edit_fileName").val(fileName);
+		    $("#script_content_edit").val(fileString);
+		    }
+	    }else{
+	    	var reader = new FileReader();//核心操作
+		    reader.readAsText(selectedFile,"GBK");//读取文件的内容
+		    reader.onload = function(evt){
+		    fileString = evt.target.result;
+		    $("#script_edit_fileName").val(fileName);
+		    $("#script_content_edit").val(fileString);
+		    }
+	    }
+	}
+	
+	/**
+	 * 脚本修改 脚本关联
+	 */
+	function editScriptLink(){
+		
+		var selfDialog = dialog({
+			id: 'script_edit_link_dg_dialog',
+			title: '',
+			content: $('#script_edit_link_dg')[0],
+			width: 400,
+			height:350,
+			okValue: '确定',
+			ok: editSaveScriptLink,
+			cancelValue: '关闭',
+			cancel: function() {}
+		}).showModal();
+	
+		var setting = {
+                view: {
+                    showLine: false,
+                    /*showIcon: false,*/
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+            };
+		
+			ajaxUtil.postrest(compWsg.script_add_link, function(data) {
+				var zNodes = data.data.entity;
+				$.fn.zTree.init($("#script_link_ztree_edit"), setting, zNodes);
+			});
+	}
+	
+	/**
+	 * 脚本修改 脚本关联选择确定
+	 */
+	function editSaveScriptLink(){
+		var treeObj = $.fn.zTree.getZTreeObj("script_link_ztree_edit");		
+		nodes=treeObj.getSelectedNodes();
+		var name = "";
+		var ids = "";
+		for(var i=0;i<nodes.length;i++){
+			if(i < nodes.length - 1){
+				if(nodes[i].id.indexOf("_")>0||nodes[i].level==0){
+					  pluspop.alert("请正确选择关联脚本");
+					  return false;
+				   }
+			    name += nodes[i].name + ",";
+		        ids  += nodes[i].id + ",";
+			}else{
+				if(nodes[i].id.indexOf("_")>0||nodes[i].level==0){
+					  pluspop.alert("请正确选择关联脚本");
+					  return false;
+				   }
+				name += nodes[i].name;
+	            ids  += nodes[i].id;	
+			}
+        }
+		$("#script_edit_link").val(name);
+		$("#script_edit_link_ids").val(ids);
+	}
+	
+	
+	/**
+	 * 脚本修改 关联组
+	 */
+	function editScriptGroup(){
+		
+		var selfDialog = dialog({
+			id: 'script_edit_group_dg_dialog',
+			title: '',
+			content: $('#script_edit_group_dg')[0],
+			width: 400,
+			height:350,
+			okValue: '确定',
+			ok: editSaveScriptGroup,
+			cancelValue: '关闭',
+			cancel: function() {}
+		}).showModal();
+	
+		var setting = {
+                view: {
+                    showLine: false,
+                    /*showIcon: false,*/
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+            };
+		
+			ajaxUtil.postrest(compWsg.script_add_group, function(data) {
+				var zNodes = data.data.entity;
+				$.fn.zTree.init($("#script_group_ztree_edit"), setting, zNodes);
+			});
+	}
+	
+	/**
+	 * 修改脚本 脚本组关联
+	 */
+	function editSaveScriptGroup(){
+		var treeObj = $.fn.zTree.getZTreeObj("script_group_ztree_edit");		
+		nodes=treeObj.getSelectedNodes();
+		var name = nodes[0].name;
+		var id = nodes[0].id;
+		if(nodes.length != 1){
+			pluspop.alert("请正确选择关联组");
+			return false;
+		}
+		if(nodes[0].isParent){
+			pluspop.alert("请正确选择关联组");
+			return false;
+		}
+		$("#script_edit_group").val(name);
+		$("#script_edit_group_id").val(id);
+	}
+	
+	/**
+	 * 修改确定
+	 */
+	function update(){
+		if ($("#rm_script_edit_form").valid()) {
+			var para = $("#rm_script_edit_form").serializeObject();
+			if(para.typeId.indexOf("FILE") != -1){
+				ajaxUtil.postrest(compWsg.script_update_save_sh, function(data) {
+					if (data.retCode == RetCode.SUCCESS) {
+						pluspop.alert("脚本修改成功");
+						search(1,true);
+					} else {
+						pluspop.alert("脚本修改失败");					
+					}
+				},para);
+			}else{
+				ajaxUtil.postrest(compWsg.script_update_save, function(data) {
+					if (data.retCode == RetCode.SUCCESS) {
+						pluspop.alert("脚本修改成功");
+						search(1,true);
+					} else {
+						pluspop.alert("脚本修改失败");					
+					}
+				},para);   
+			}
+			
+		}else{
+			return false;
+		}
+	}
+	
+	/**
+	 * 脚本详情
+	 */
+	function showScript(event){
+		
+		var selfDialog = dialog({
+			id: 'rm_script_show_dialog',
+			title: '',
+			content: $('#rm_script_show')[0],
+			width: 1000,
+			height:450,
+			/*okValue: '确定',
+			ok: update,*/
+			cancelValue: '关闭',
+			cancel: function() {}
+		}).showModal();
+			
+		var id = event.currentTarget.attributes.value.nodeValue;
+		var para ={"id":id};
+		ajaxUtil.postrest(compWsg.script_show, function(data) {
+			if (data.retCode == RetCode.SUCCESS) {
+				require(['./tpl/show.tpl'], function(fun) {
+					$("#rm_script_show").html(fun(data.data));		
+				});
+			} else {
+				pluspop.alert("脚本详情回显失败");					
+			}
+		},para);
+		
+	}
+	
+	/**
+	 * 删除
+	 */
+	function btnScriptDel(){
+		if ($('input[name="cb_script"]:checked').size()==0) {
+			pluspop.alert("请选择要删除的脚本");
+			return false;			
+		}
+		pluspop.confirm(pluspop.msg.confirm_delete,function(){		
+			$('input[name="cb_script"]:checked').each(function(i,ele){
+				var para = {'id':$(ele).val()};
+				ajaxUtil.postrest(compWsg.script_delete, function(data) {	
+					if(data.retCode == RetCode.SUCCESS){
+						search(1,true);
+					}else{
+						pluspop.alert("脚本删除失败");				
+					}
+				}, para);
+			});
+		});
+		
+		
+	}
+	
+	init();
+	
+	return obj;
+});

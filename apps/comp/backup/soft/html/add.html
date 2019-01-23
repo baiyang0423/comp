@@ -1,0 +1,63 @@
+<form method="post" id="addForm">
+    <div class="configure fs-14 bgc-white pd-20 dialog-overflow">
+        <input type="hidden" name="type" id="soft_type_conf" value="soft">
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>标题：</span>
+                <input  id="soft_title" name="title" required type="text" value="" style="width: 50%" />
+            </div>
+        </div>
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>主机：</span>
+                <input class="ipt-m" readonly="readonly" id="soft_host_name" name="host" type="text" value="" style="width:50%">
+                <input type="hidden" id="soft_host_id" name="host"/>
+                <a href="#none" class="color-lightblue mgl-20 config-server" id="selectPwdBtn">选择主机</a>
+            </div>
+        </div>
+        <div class="mgb-20 clear">
+            <div class="select-ty">
+                <span>处理脚本：</span>
+                <textarea name="shell" id="soft_shell"></textarea>
+            </div>
+        </div>
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>软件包地址：</span>
+                <input  id="soft_path" name="path" required type="text" value="" style="width: 50%" />
+            </div>
+        </div>
+        <div class="mgb-20 clear">
+            <div class="col-6 select-ty">
+                <span>执行周期：</span>
+                <select required name="typeId" id="schedule" name="" style="width: 50%" class="icon-select">
+                    <option value="day">天</option>
+                    <option value="week">周</option>
+                    <option value="month">月</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>描述：</span>
+                <input  id="soft_remark" name="soft_remark" required type="text" value="" style="width: 50%" />
+            </div>
+        </div>
+
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>备份主机IP：</span>
+                <input  id="soft_backup_ip" name="soft_backup_ip" required type="text" value="" style="width: 50%" />
+            </div>
+        </div>
+
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>备份文件目录：</span>
+                <input  id="soft_backup_path" name="soft_backup_path" required type="text" value="" style="width: 50%" />
+            </div>
+        </div>
+
+    </div>
+</form>

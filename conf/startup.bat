@@ -1,0 +1,1 @@
+fis server start --type nginx --root D:\HBuilderWorkspace\git\release -p 10086 -b 127.0.0.1:8083

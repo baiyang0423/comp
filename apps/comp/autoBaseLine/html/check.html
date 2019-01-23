@@ -1,0 +1,37 @@
+<!--主体内容-->
+<div class="min-width1200 pd-10">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left relative" style="z-index: 9;">
+        <div class="shui-bg"></div>
+		<p class="fs-20 pdl-10">在线检测结果</p>
+		<div class="pd-20 clear">
+			<input type="hidden" id="base_line_chcke_taskId" />
+			<input type="hidden" name="checkPercent" id="checkPercent" value="" />
+   			<div class="fl mgr-30"><img src="../../../../nresource/comp/pub-ui/images/ce-img.png" alt=""></div>
+            <div class="fl clear">
+                <div class="mgb-20">
+                    <span class="mw mw-100 of-title">加固模式</span>
+                    <span class="dis-inline-block mgl-20">
+                        <select class="icon-select mgl-10" id="check_select" style="width: 200px;min-width: 80px;">
+                            <option value="SUGGEST">加固推荐指标项</option>
+							<option value="ALL">全部加固</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="mgb-20">
+                    <span class="mw mw-100" style="vertical-align: top;">当前检测进度</span>
+                    <span class="dis-inline-block mgl-20" style="width: 200px;">
+                        <div id="pieDiagram" style="width:100%;height: 140px;" class="bgc-white"></div>
+                    </span>
+                </div>
+            </div>
+   		</div>
+	</div>
+	<div id="base_line_check_list" style="margin-bottom:40px">
+		
+	</div>
+</div>
+    <div class="dialog-btn bottom-button pd-5 tc animation-right" style="position:fixed;">
+        <a href="#none" class="button-blue" id="base_line_chcke_save">保存</a>
+        <a href="#none" class="button-green mgl-50" id="btn_base_line_chcke_cancel">取消</a>
+    </div>
+

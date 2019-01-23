@@ -1,0 +1,80 @@
+<div class="min-width1200">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<p class="fs-20 pdl-10">主机密码管理</p>
+		<form id="theForm" class="clear fs-14 alltable-form pdt-20">
+    		<div class="col-3">
+    			<span class="mw mw-100 of-title">用户名</span>
+    			<input type="text" id="searchUserName" value=""/>
+    		</div>
+    		<div class="col-3">
+    			<span class="mw mw-100 of-title">IP地址</span>
+    			<input type="text" id="searchIp" value=""/>
+    		</div>
+    		<div class="col-3">
+                <span class="mw mw-100 of-title">状态</span>
+                <select style="min-width: 150px;" class="icon-select" id="searchStatus">
+    				<option value="">请选择</option>
+					<option value="normal">正常</option>
+					<option value="expires">过期</option>
+					<option value="willexpires">即将过期</option>
+					<option value="loginfail">密码错误</option>
+					<option value="lock">用户锁定</option>
+                </select>
+            </div>
+    		<div class="col-3" id="search_list">
+	   			<input type="button" value="查询" class="form-btn fb-submit search" id="btn-search"/>
+	   			<input onclick="javascript:resetForm('theForm');return false;" type="reset" value="重置" class="form-btn fb-reset mgl-10"/>
+		   	</div>
+		</form>
+	</div>
+	<div class="pd-10 clear animation-right">
+    	<div class="alltable-link clear">
+    		<ul class="fr">
+				<li><a href="#none" id="insert" class="link-list link-list-new">新增</a></li>
+                <li><a href="#none" id="edit" class="link-list link-list-modify">修改</a></li>
+                <li><a href="#none" id="del" class="link-list link-list-del">删除</a></li>
+                <li><a href="#none" id="ref" class="link-list link-list-reset">更新</a></li>
+                <li><a href="#none" id="verifyBtn" class="link-list link-list-auto">验证</a></li>
+                <li><a href="#none" id="imports" class="link-list link-list-hand">导入</a></li>
+                <li><a href="#none" id="export" class="link-list link-list-out">导出</a></li>
+			</ul>
+    	</div>
+    	<div class="approval-table fs-14">
+       		<table  id="theTable">
+       			<colgroup>
+                    <col width="5%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col width="15%">
+                </colgroup>
+       			<tr>
+                    <th class="bdl-0 w-50">
+                        <label class="replace-checkbox allcheck">
+                            <input type="checkbox" />
+                            <span></span>
+                        </label>
+                    </th>
+                    <th>IP地址</th>
+                    <th>主机名称</th>
+                    <th>用户名</th>
+                    <th>状态</th>
+					<th class="bdr-0 w-260">更新时间</th>
+       			</tr>
+       			<tbody id="mainbody">
+            	</tbody>
+       		</table>	
+   		</div>
+   		<!--分页-->
+   		<div class="page" id="mainPage"></div>
+    </div>
+</div>
+
+<form method="post" action="" id="exportForm">
+	<input type="hidden" id="exportUserId" name="userId" value=""/>
+	<input type="hidden" id="exportIp" name="ip" value=""/>
+	<input type="hidden" id="exportUsername" name="username" value=""/>
+	<input type="hidden" id="exportStatus" name="status" value=""/>
+</form>
+<script type="text/javascript" src="main.js"></script>

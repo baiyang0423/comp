@@ -1,0 +1,87 @@
+<form method="post" id="addForm">
+	<div class="configure fs-14 bgc-white pd-20 dialog-overflow">
+		
+		<input id="add_input_task_id" name="id" type="hidden" value="" />
+		<input type="hidden" id="add-input-corn" name="corn" value="" />
+		<input type="hidden" id="script-type" value="SHELL" />
+		<div class="mgb-20 clear">
+			<div class="col-12 select-ty">
+				<span>任务名称：</span>
+				<input name="name" id="add-input-task_name" required type="text" value="" style="width: 50%" />
+			</div>
+		</div>
+		
+		<div class="mgb-20 clear">
+			<div class="col-12 select-ty">
+				<span>执行脚本：</span>
+				<input name="scriptName" id="add-input-sprict_name" required readonly="readonly" type="text" value="" style="width: 50%" />
+				<input type="hidden" name="scriptId" id="add-input-sprict_id" value="" />
+				<a href="#none" class="color-lightblue mgl-20 config-server" id="select_script_list">选择脚本</a>
+			</div>
+		</div>
+
+		<div class="clear mgb-20">
+			<div class="col-12 select-ty">
+				<span>执行策略：</span>
+			</div>
+		</div>
+		<div class="clear mgb-20">
+			<div class="col-4 select-ty">
+				<select name="typeId" id="select_year" class="icon-select" style="width: 50%;">
+					<option value="*">任意年</option>
+				</select>
+			</div>
+			<div class="col-4 select-ty">
+				<select name="typeId" id="select_month" class="icon-select" style="width: 50%;">
+					<option value="*">任意月</option>
+				</select>
+			</div>
+
+			<div class="col-4 select-ty">
+				<select name="typeId" id="select_day" class="icon-select" style="width: 50%;">
+					<option value="*">任意日</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="clear mgb-20">
+			<div class="col-4 select-ty">
+				<select name="typeId" id="select_hours" class="icon-select" style="width: 50%;">
+					<option value="*">任意时</option>
+				</select>
+			</div>
+			<div class="col-4 select-ty">
+				<select name="typeId" id="select_minute" class="icon-select" style="width: 50%;">
+					<option value="*">任意分</option>
+				</select>
+			</div>
+			<div class="col-4 select-ty">
+				<select name="typeId" id="select_second" class="icon-select" style="width: 50%;">
+					<option value="*">任意秒</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="clear mgb-20">
+			<div class="col-12 select-ty">
+				<span>执行主机：</span>
+				<a href="#none" class="color-lightblue mgl-20 config-server" id="select_host_list">选择主机</a>
+			</div>
+		</div>
+		
+		<div class="clear mgb-20">
+			<div class="col-12 select-ty">
+				<div class="approval-table fs-14">
+					<table>
+						<tr>
+							<th class="bdl-0">IP</th>
+							<th>用户名</th>
+							<th>操作</th>
+						</tr>
+						<tbody id="selectHostBody"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

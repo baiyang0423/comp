@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--#include file="/npage/comp/link.html" -->
+		<title>任务管理</title>
+	</head>
+	<body>
+		<!-- 列表-->
+		<!--#include file="/apps/comp/task/html/list.html" -->
+		<!-- 增加部署任务 -->
+		<!--弹窗-->
+	    <div class="hide" id="task_add" f="dialog">
+	    	<!--#include file="/apps/comp/task/html/add.html" -->
+		</div>
+		
+		<!-- 选择脚本-->
+		<div class="hide" id="select_script_radio_model">
+			<!--#include file="/apps/comp/model/script/radio/model.html" -->
+		</div>
+		
+		<!-- 选择主机 -->
+		<div class="hide" id="select_pwd_host_check_model" f="dialog">
+			<!--#include file="/apps/comp/model/passwd/host/check/model.html" -->
+		</div>
+		
+		<!-- 选择数据库密码 -->
+		<div class="hide" id="select_pwd_db_check_model">
+			<!--#include file="/apps/comp/model/passwd/db/check/model.html" -->
+		</div>
+		
+		<!-- 执行任务 -->
+		<div class="none" id="execute_tatsk">
+			<!--#include file="/apps/comp/task/html/executeTask.html" -->
+		</div>
+		<!-- 设置权限 -->
+		<div class="none" id="log_authority">
+			<!--#include file="/apps/comp/task/html/logAuthority.html" -->
+		</div>
+		<!-- 查看日志 -->
+		<div class="none" id="look_log">
+			<!--#include file="/apps/comp/task/html/logLook.html" -->
+		</div>
+		<!--加载弹窗-->
+		<!--#include file="/apps/comp/model/tip/tip.html" -->
+</body>
+
+</html>

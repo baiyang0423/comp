@@ -1,0 +1,41 @@
+<div class="alltable-link clear">
+    <ul class="fr">
+        <li><a href="#none" id="btn-reset" class="operate reset">刷新目录</a></li>
+        <li><a href="#none" id="btn-cleanup" class="operate del">清理目录</a></li>
+    </ul>
+</div>
+
+<form method="post" id="cleanForm">
+    <div class="configure fs-14 bgc-white pd-20 dialog-overflow">
+        <div class="approval-table fs-14">
+            <input type="hidden" id="clean_directory_id" value="">
+            <input type="hidden" id="clean_directory_lastJobId" value="">
+            <table>
+                <tr>
+                    <td bgcolor="#00bfff"> <span style="color: white"> 主机ip</span></td>
+                    <td ><input style="border:0px;text-align: center"  readonly="readonly" id="clean_directory_host_ip" name="clean_directory_host_ip" value=""></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#00bfff"><span style="color: white">登陆用户</span></td>
+                    <td><input style="border:0px;text-align: center"  readonly="readonly" id="clean_directory_user" name="clean_directory_user" value=""></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#00bfff"><span style="color: white">目录名称</span></td>
+                    <td><input style="border:0px;text-align: center"  readonly="readonly" id="clean_directory_name" name="clean_directory_name"value=""></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#00bfff"><span style="color: white">目录路径</span></td>
+                    <td><input style="border:0px;text-align: center"  readonly="readonly" id="clean_directory_path" name="clean_directory_path" value=""></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#00bfff"><span style="color: white">文件数</span></td>
+                    <td><input style="border:0px;text-align: center"  readonly="readonly" id="clean_directory_num" name="clean_directory_num" value=""></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#00bfff"><span style="color: white">占用空间</span></td>
+                    <td><input style="border:0px;text-align: center"  readonly="readonly" id="clean_directory_size" name ="clean_directory_size" value=""></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>

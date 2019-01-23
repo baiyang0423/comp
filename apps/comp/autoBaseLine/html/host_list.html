@@ -1,0 +1,53 @@
+<div class="container bgc-grey" style="width: 1000px">
+	<div class="mian-con mg-10">
+		<div class="page-body pdl-0">
+			<div>
+				<div class="block">
+					<div class="block-body">
+						<div class="row query_box">
+						<form action="" method="post" id="host_list_form" class="clear fs-14 alltable-form pdt-20">
+							<div class="clear mgb-20">
+								<!--隐藏框-->
+						   		<div class="col-4 select-ty">
+						   			<span>IP地址：</span>
+						   			<input  id="host_list_ip" name="ip" type="text" style="width: 160px">
+						   		</div>
+						   		<!--<div class="col-4 select-ty">
+						   			<span>业务系统：</span>
+						   			<input  id="host_list_osType" name="osType" type="text" style="width: 160px">
+						   		</div>-->
+						   		<div class="col-4">
+						   			<input type="button" value="查询" class="form-btn fb-submit" id="btn_host_list_search"/>
+					  				<input onclick="javascript:resetForm('host_list_form');return false;" type="reset" value="重置" class="form-btn fb-reset mgl-10"/>
+					  		   	</div>
+					  		  </div>
+			   			</form>
+						</div>
+						<div class="approval-table fs-14">
+							<table id="theTable">
+								<tr>
+									<th style="width: 50px;">
+										<label class="replace-checkbox allcheck" > 
+											<input type="checkbox" /> <span></span>
+										</label>
+									</th>
+									<th>主机IP</th>
+									<th>用户名</th>
+									<th>业务系统</th>
+									<th>密码是否有效</th>
+								</tr>
+					            <tbody id="tbody_select_host_list">
+					            </tbody>
+					        </table>
+						</div>		
+						<div class="page" id="page_select_host_list" style="margin-bottom:40px"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="dialog-btn bottom-button pd-5 tc"  style="position:fixed;">
+	<a href="#" id="btn_host_list_selected" class="button-blue">确认</a>
+	<a href="#none" class="button-green mgl-30" id="btn_host_list_cancel">返回</a>
+</div>

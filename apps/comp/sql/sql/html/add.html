@@ -1,0 +1,47 @@
+<form action="#none" method="post" enctype="multipart/form-data" id="addForm">
+    <div class="fs-14 bgc-white pd-20 dialog-overflow">
+        <input id="sqlid" name="sqlid" type="hidden" value="" />
+        <div class="mgb-20 clear">
+            <div class="col-6 select-ty">
+                <span>SQL名称：</span>
+                <input name="name" id="add-input-name" required type="text" value="" style="width: 50%" />
+            </div>
+        </div>
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>关联数据库：</span>
+                <input class="ipt-m" readonly="readonly" required id="db-dialog" type="text" value="" style="width: 70%" />
+                <input type="hidden" value="" id="resourceId" name="db" />
+                <input type="hidden" value="" id="instanceId" name="instanceId" />
+            </div>
+        </div>
+        <div class="mgb-20 clear">
+            <div class="col-12 select-ty">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <a href="#none" class="h-underline operate new"  style="height: 20px;background-position-y: -317px;" id="btn-insert-params" >增加变量</a>
+            </div>
+        </div>
+        <div class="mgb-20 clear">
+            <div class="select-ty">
+                <span>SQL内容：</span>
+                <textarea name="content" id="add-input-content" required></textarea>
+            </div>
+        </div>
+        <div class="mgt-big clearfix pdl-10">
+            <div class="layout-container fl" style="width: 100%">
+                <p align="center">
+                    <font color="red">提示: 变量可以通过选择个人变量字典填充或者手动进行填写,变量名称统一使用${变量名称}格式填写.</font>
+                </p>
+                <p align="center">
+                    <font color="red">例子: select name,age from user where name=${name} and phone=${phone}</font>
+                </p>
+            </div>
+        </div>
+        <div class="mgb-20 clear">
+            <div class="select-ty">
+                <span>SQL描述：</span>
+                <textarea name="remark" id="add-input-remark"></textarea>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,62 @@
+<div class="min-width1200 main-padd">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<p class="fs-20 pdl-10">CRM数据修改场景列表</p>
+		<form action="#none" id="scene_form" class="clear fs-14 alltable-form pdt-20">
+			 <div class="col-3">
+				<span class="mw mw-100 of-title">场景类型：</span>
+				<select class="icon-select mgl-10" id="sceneType">
+					<option value="">请选择</option>
+				</select>
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">开始时间：</span>
+				<input type="text" class="timebg2 mgl-0" onClick="WdatePicker()" id="startTime"/>
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">场景名称：</span>
+				<input id="sceneName" type="text" value="">
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">结束时间：</span>
+				<input type="text" class="timebg2 mgl-0" onClick="WdatePicker()" id="endTime"/>
+			</div>
+			<div class="col-3">
+				<input type="button" id="btn-search" onclick="javascript:void(0);" value="查询" class="form-btn fb-submit" />
+				<input type="button" value="重置" onclick="javascript:resetForm('scene_form');return false;"  class="form-btn fb-reset mgl-10" />
+			</div>
+	</form>
+	</div>
+	<div class="pd-10 clear animation-right">
+		<div class="alltable-link clear">
+			<ul class="fr">
+				<li><a href="#none" id="insert" class="link-list link-list-new">新增</a></li>
+				<li><a href="#none" id="log" class="link-list link-list-modify">查看日志</a></li>
+			</ul>
+		</div>
+		<div class="approval-table fs-14">
+			<table class="ued-table stripe-table-noborder">
+				<tr>
+					<th>选择</th>
+					<th>场景类型</th>
+					<th>场景名称</th>
+					<th>场景描述</th>
+					<th>关联任务数</th>
+					<th>执行时间</th>
+					<th>创建时间</th>
+					<th>创建人</th>
+					<th>执行次数</th>
+					<th>操作</th>
+				</tr>
+				<tbody id="tbody_scenePage"></tbody>
+			</table>
+		</div>
+		<div id="trNum" style="width:95%;height:30px;color:#fd8e5f;text-align:right"></div>
+	</div>
+	<!--分页-->
+	<div class="pagination clear pd-10 fs-14 bgc-white">
+		<div class="fr" id="scenePage"></div>
+	</div>
+</div>
+<script type="text/javascript">
+    require(["../index"],function(index){index.init();});
+</script>

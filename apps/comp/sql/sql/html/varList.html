@@ -1,0 +1,30 @@
+<div class="min-width1200 main-padd">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<p class="fs-20 pdl-10">SQL变量管理</p>
+		<form action="#none" id="varForm" class="clear fs-14 alltable-form pdt-20">
+			<div class="col-3">
+				<span class="mw mw-100 of-title">变量名称</span>
+				<input name="varName"  type="text" value="" />
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">变量值</span>
+				<input name="varContent" type="text" value="" />
+			</div>
+			<div class="col-3">
+				<input type="button" id="btn-var-add-save" onclick="javascript:void(0);" value="添加" class="form-btn fb-submit" />
+			</div>
+		</form>
+	</div>
+	<div class="pd-10 clear animation-right">
+		<div class="approval-table fs-14">
+			<table>
+				<tr>
+					<th>变量名称</th>
+					<th>变量值</th>
+					<th>操作</th>
+				</tr>
+				<tbody id="varmainbody"></tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<div class="min-width1100 pd-10">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<p class="fs-20 pdl-10 tit">新增主机密码</p>
+	</div>
+	<form action="#" id="addForm" >
+		<input type="hidden" value="" id="groupId" name="groupId" />
+		<input type="hidden" value="" name="pwdId" id="pwdId" />
+		<input type="hidden" value="" name="userId" id="account" />
+		<div class="pd-10 clear animation-right pdb-0">
+			<div class="bdb-0 configure fs-14 bgc-white mgt-0 pdt-40">
+				<div class="mgb-20 col-5" >
+                	<p><span><span style="color:red;width:10px;">*&nbsp;</span>关联主机</span></p>
+                	<input type="text" name="host" id="host" value="" style="width:240px">
+                	<input type="hidden" value="" id="resourceId" name="resourceId" />
+            	</div>
+            	<div class="mgb-20  col-6">
+                	<p><span><span style="color:red;width:10px;">*&nbsp;</span>用户名</span></p>
+                	<input type="text" name="username" id="username" required value="" style="width:240px">
+            	</div>
+			</div>
+			<div class="bdb-0 configure fs-14 bgc-white mgt-0 pdt-20">
+				<div class="mgb-20 col-5" >
+                	<p><span><span style="color:red;width:10px;">*&nbsp;</span>密码</span></p>
+                	<input type="text" name="password" id="password" value="" style="width:240px">
+            	</div>
+            	<div class="mgb-20  col-6">
+                	<p><span><span style="color:red;width:10px;">*&nbsp;</span>确认密码</span></p>
+                	<input type="text" name="repassword" id="repassword" required value="" style="width:240px">
+            	</div>
+			</div>
+			<div class="bdb-0 configure fs-14 bgc-white mgt-0 pdt-40">
+				<div class="mgb-20 col-5" >
+                	<p><span><span style="color:red;width:10px;">*&nbsp;</span>默认标签</span></p>
+                	<input type="text" name="lable" id="lable" value="" style="width:240px">
+            	</div>
+            	<div class="mgb-20  col-6">
+                	<p><span><span style="color:red;width:10px;">*&nbsp;</span>操作系统</span></p>
+                	<select style="min-width: 240px;" class="icon-select" id="pwdtypeSetting" name="typeId">
+    				</select>
+            	</div>
+			</div>
+			<div class="bdb-0 configure fs-14 bgc-white mgt-0">
+				<div class="mgb-20 col-10" >
+                	<p><span>备注</span></p>
+                	<textarea name="remark" id="remark" style="width: 80%;height: 100px;" class="pd-10"></textarea>
+            	</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class=" dialog-btn bottom-button pd-5 tc animation-right">
+	<a href="#none" class="button-blue" id="addPwdButton">确定</a>
+	<a href="#none" class="button-green mgl-50" id="addPwdButtonCanal">返回</a>
+</div>

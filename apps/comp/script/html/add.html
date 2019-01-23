@@ -1,0 +1,47 @@
+<!-- 新增脚本 -->
+<div class="hide" id="rm_script_add" f="dialog">
+	<form action="#none" method="post" enctype="multipart/form-data" id="rm_script_add_form">
+		<div class="fs-14 bgc-white pd-20 dialog-overflow">
+			<input id="add_input_task_id" name="scriptId" type="hidden" value="" />
+			<input type="hidden" name="groupId" value="" id="script_add_group_id" >
+			<input type="file" class="hide none" multiple="multiple" name="add_button" id="file_select">
+			<input type="hidden" name="filename"  id="script_add_fileName">
+			<input name="linkScriptId" type="hidden" value="" id="script_add_link_ids">
+			<div class="mgb-20 clear">
+				<div class="col-6 select-ty">
+					<span>脚本名称：</span>
+					<input name="name" id="script_name_add" required type="text" value="" style="width: 50%" />
+				</div>
+				<div class="col-6 select-ty">
+					<span>脚本类组：</span>
+					<input required style="width: 50%;" type="text" value="" name="scriptGroupName"  id="script_add_group" >
+					<a href="#none" id="script_add_group_btn" class="color-lightblue config-apply">选择</a>
+				</div>
+			</div>
+			<div class="mgb-20 clear">
+				<div class="col-6 select-ty">
+					<span>脚本主类型：</span>
+					<select required id="script_type_add" class="icon-select" style="width: 50%;"></select>
+				</div>
+				<div class="col-6 select-ty">
+					<span>脚本子类型：</span>
+					<select required name="typeId" id="script_child_type_add" style="width: 50%" class="icon-select">
+						<option value="">请选择</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="select-ty">
+				<span>脚本内容：</span>
+				<textarea name="content" id="script_content_add"></textarea>
+				<!--<a href="javascript:void(0);" id="btn_script_sel" target="_blank" class="color-lightblue config-apply">选择</a>-->
+			</div>
+<div class="mgb-20 clear">
+			</div>
+			<div class="select-ty">
+				<span>脚本备注：</span>
+				<textarea name="remark" id="script_remark_add"></textarea>
+			</div>
+		</div>
+	</form>
+</div>

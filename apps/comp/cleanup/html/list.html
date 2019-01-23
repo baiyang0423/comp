@@ -1,0 +1,56 @@
+<div class="min-width1200 main-padd">
+    <div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+        <p class="fs-20 pdl-10">目录清理</p>
+        <form action="#none" id="cleanup_form" class="clear fs-14 alltable-form pdt-20">
+            <div class="col-3">
+                <span class="mw mw-100 of-title">目录名称</span>
+                <input name="directoryName" id="directoryName" type="text" value="" />
+            </div>
+            <div class="col-3">
+                <span class="mw mw-100 of-title">目录路径</span>
+                <input name="directoryPath" id="directoryPath" type="text" value="" />
+            </div>
+            <div class="col-3">
+                <input type="button" id="btn-search" onclick="javascript:void(0);" value="查询" class="form-btn fb-submit" />
+                <input type="button" id="btn-reset" value="重置"  class="form-btn fb-reset mgl-10" />
+            </div>
+        </form>
+    </div>
+    <div class="pd-10 clear animation-right">
+        <div class="alltable-link clear">
+            <ul class="fr">
+                <li><a href="#none" id="btn-insert" class="link-list link-list-new">新增</a></li>
+                <li><a href="#none" id="btn-edit" class="link-list link-list-modify">修改</a></li>
+                <li><a href="#none" id="btn-del" class="link-list link-list-del">删除</a></li>
+                <li><a href="#none" id="btn-clean" class="link-list link-list-open">清理</a></li>
+            </ul>
+        </div>
+        <div class="approval-table fs-14">
+            <table>
+                <tr>
+                    <th class="bdl-0 w-50">
+                        <label class="replace-checkbox allcheck">
+                            <input type="checkbox" />
+                            <span></span>
+                        </label>
+                    </th>
+                    <th>目录名称</th>
+                    <th>路径</th>
+                    <th>文件数</th>
+                    <th>主机IP</th>
+                    <th>最后清理时间</th>
+                    <th>最后清理人</th>
+                    <th>文件大小</th>
+                </tr>
+                <tbody id="mainbody"></tbody>
+            </table>
+        </div>
+        <!--分页-->
+        <div class="pagination clear pd-10 fs-14 bgc-white">
+            <div class="fr" id="mainPage"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    require(["../index"],function(index){index.init();});
+</script>

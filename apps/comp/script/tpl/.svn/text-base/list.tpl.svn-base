@@ -1,0 +1,20 @@
+{{each entity}} 
+<tr >
+    <td>
+        <label class="checkbox js-checkbox">
+            <input type="checkbox" name="cb_script" value="{{$value.id}}" valName="{{$value.name}}">
+            <span class="checkbox-bg"></span>
+        </label>
+    </td>
+    <td><a href="javascript:void(0)" class="fc-org2 show-script" value="{{$value.id}}">{{$value.name}}</a></td>
+    
+    <td  class="hidden-content">
+    	{{$value.content}}
+    </td>
+    <td>{{$value.type}}</td>
+    <td>{{$value.childType}}</td>
+    <td>{{$value.group}}</td>
+    <td>{{$value.userName}}</td>
+    <td>{{$value.time}}</td>
+</tr>
+{{/each}} 

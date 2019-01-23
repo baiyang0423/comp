@@ -1,0 +1,84 @@
+<!--主体内容-->
+    <div class="min-width1100 pd-10">
+    	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+    		<p class="fs-18 pdl-10">基线加固任务</p>
+    		<form id="theForm" class="clear fs-14 alltable-form pdt-20">
+	    		<div class="col-3">
+	    			<span class="mw mw-100 of-title">标题</span>
+	    			<input type="text" id="base_line_remarks" name="remarks" />
+	    		</div>
+	    		<div class="col-3">
+		   			<input type="button" value="查询" class="form-btn fb-submit" id="btn_search_task"/>
+		   			<input onclick="javascript:resetForm('theForm');return false;" type="reset" value="重置" class="form-btn fb-reset mgl-10"/>
+			   	</div>
+    		</form>
+    	</div>
+    	<div class="pd-10 clear animation-right">
+    		<div class="alltable-link clear">
+    			<ul class="fl">
+    				<li>
+						<a href="#" class="link-list link-list-new" id="btn_base_line_add">选择</a>
+					</li>
+				</ul>
+    		</div>
+    		<div class="approval-table fs-14">
+	       		<table  id="theTable">
+	       			<tr>
+	       				<th class="bdl-0 w-50">
+	       					<label class="replace-checkbox allcheck">
+	       						<input type="checkbox" />
+	       						<span></span>
+	       					</label>
+	       				</th>
+	       				<th>任务名称</th>
+	       				<th>描述</th>
+						<th>主机数量</th>
+						<th>成功</th>
+						<th>失败</th>
+						<th>执行状态</th>
+						<!--<th>审核人</th>
+						<th>审核状态</th>-->
+						<th>创建人</th>
+	       			</tr>
+	       			<tbody id="tbody_base_line">
+	            	</tbody>
+	       		</table>	
+       		</div>
+       		<!--分页-->
+       		<div class="page" id="page_base_line"></div>
+    	</div>
+    </div>
+
+<div class="min-width1100 pd-10"  style="margin-bottom:40px">
+	<div class="pd-10 clear animation-right">
+		<p class="fs-18 pdl-10">已选任务列表</p>
+    		<div class="approval-table fs-14">
+	       		<table  id="theTable">
+	       			<tr>
+	       				<th class="bdl-0 w-50 none">
+	       					<label class="replace-checkbox all-checked">
+	       						<input type="checkbox" />
+	       						<span></span>
+	       					</label>
+	       				</th>
+	       				<th>任务名称</th>
+	       				<th>描述</th>
+						<th>主机数量</th>
+						<th>成功</th>
+						<th>失败</th>
+						<th>执行状态</th>
+						<!--<th>审核人</th>
+						<th>审核状态</th>-->
+						<th>创建人</th>
+						<th>操作</th>
+	       			</tr>
+	       			<tbody id="tbody_base_line_2">
+	            	</tbody>
+	       		</table>	
+       		</div>
+    	</div>
+</div>
+<div class="dialog-btn bottom-button pd-5 tc animation-right" style="position:fixed;">
+    <a href="#none" class="button-blue" id="base_line_save">确定</a>
+    <a href="#none" class="button-green mgl-30 js_close">返回</a>
+</div>

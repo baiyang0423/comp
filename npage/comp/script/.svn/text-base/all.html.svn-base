@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>脚本管理</title>
+<!--#include file="/npage/comp/link.html" -->
+</head>
+<body>	
+	<div class="mian-con mg-10">
+		<div class="page-body pdl-0">
+			<div class="page-body-inner">
+				<div class="block">
+					<div class="block-head">
+						<span class="tit">脚本管理</span>
+					</div>
+					<div class="block-body">
+						<div class="row query_box">
+						<form action="#" id="fm_script">
+							<div class="col-3">
+								<span>脚本名称：</span> <input class="ipt-m" type="text" name="name"
+									value="" style="width: 200px">
+							</div>
+							<div class="col-3">
+								<span>脚本类型：</span> <select class="form-select-m" name="resourceTypeId"
+									style="width: 200px">
+									<option value="">请选择</option>
+									<option value="HOST">物理机</option>
+									<option value="VIRTUAL_MACHINE">虚拟机</option>
+								</select>
+							</div>
+						</form>	
+						<div class="col-3">
+							<button type="button" class="btn-org mgl-m active" style="width: 100px;" id="btn_search_script">查询</button>
+							<button type="button" class="btn-org mgl-m" style="width: 100px;" id="btn_reset_script">重置</button>
+						</div>
+						</div>
+						<div class="opt-box mgt-m">
+							<div class="opt-btn-bar">
+								<a class="opt-btn" target="_blank" id="btn_script_add">
+									<i class="icon insert"></i>新增
+								</a>
+								<a class="opt-btn" target="_blank" id="btn_scrip_edit">
+									<i class="icon modify"></i>修改
+								</a>
+								<a class="opt-btn" target="_blank" id="btn_scrip_del">
+									<i class="icon del"></i>删除
+								</a>
+							</div>
+							<table class="ued-table stripe-table-noborder">
+							<colgroup>
+								<col width="7%">
+								<col width="10%">
+								<col width="40%">
+								<col width="10%">
+								<col width="8%">
+								<col width="8%">
+								<col width="5%">
+								<col width="12%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>选择</th>
+									<th>脚本名称</th>
+									<th>脚本内容</th>
+									<th>类型</th>
+									<th>细分类型</th>
+									<th>脚本组</th>
+									<th>创建人</th>
+									<th>更新时间</th>									
+								</tr>
+							</thead>
+							<tbody id="tbody_script">
+								
+							</tbody>
+						</table>
+						</div>
+						<div class="page" id="page_script"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--#include file="/apps/comp/rm/script/add.html" -->
+</body>
+<script>
+$(document).ready(function(){
+	require(['/apps/comp/rm/script/index.js']);
+})
+</script>
+</html>

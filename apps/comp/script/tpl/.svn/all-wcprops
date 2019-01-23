@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/CSD/!svn/ver/55006/CMD/cloud/product/trunk/super-op-web-view/comp_op_web_view/apps/comp/script/tpl
+END
+edit.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/CSD/!svn/ver/55006/CMD/cloud/product/trunk/super-op-web-view/comp_op_web_view/apps/comp/script/tpl/edit.tpl
+END
+scriptType.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CSD/!svn/ver/53618/CMD/cloud/product/trunk/super-op-web-view/comp_op_web_view/apps/comp/script/tpl/scriptType.tpl
+END
+list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/CSD/!svn/ver/55006/CMD/cloud/product/trunk/super-op-web-view/comp_op_web_view/apps/comp/script/tpl/list.tpl
+END
+show.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/CSD/!svn/ver/53618/CMD/cloud/product/trunk/super-op-web-view/comp_op_web_view/apps/comp/script/tpl/show.tpl
+END

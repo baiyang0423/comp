@@ -1,0 +1,73 @@
+<div class="min-width1200 main-padd">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<p class="fs-20 pdl-10">sql配置</p>
+		<form action="#none" id="sql_form" class="clear fs-14 alltable-form pdt-20">
+			<div class="col-3">
+				<span class="mw mw-100 of-title">SQL名称</span>
+				<input name="searchSQLName" id="searchSQLName" type="text" value="" />
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">SQL内容</span>
+				<input name="searchSQLContent" id="searchSQLContent" type="text" value="" />
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">归属用户</span>
+				<select  name="serchAccount" id="serchAccount" class="icon-select" style="width: 50%;">
+					<option value="">请选择</option>
+				</select>
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">数据库类型</span>
+				<select class="icon-select" id="dbtype" style="width: 50%;">
+					<option value="DB_ORACLE">ORACLE</option>
+					<option value="DB_MYSQL">MYSQL</option>
+				</select>
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">数据库</span>
+				<select  name="searchDB" id="searchDB" class="icon-select" style="width: 50%;">
+					<option value="">请选择</option>
+				</select>
+			</div>
+			<div class="col-3">
+				<span class="mw mw-100 of-title">数据库用户</span>
+				<select  name="searchUsers" id="searchUsers" class="icon-select" style="width: 50%;">
+					<option value="">请选择</option>
+				</select>
+			</div>
+			<div class="col-3">
+				<input type="button" id="btn-search" onclick="javascript:void(0);" value="查询" class="form-btn fb-submit" />
+				<input type="button" value="重置" onclick="javascript:resetForm('sql_form');return false;"  class="form-btn fb-reset mgl-10" />
+			</div>
+		</form>
+	</div>
+	<div class="pd-10 clear animation-right">
+		<div class="approval-table fs-14">
+			<table>
+				<tr>
+					<th class="bdl-0 w-50">
+						<label class="replace-checkbox allcheck">
+							<input type="checkbox" />
+							<span></span>
+						</label>
+					</th>
+					<th>sql名称</th>
+					<th>sql内容</th>
+					<th>关联数据库</th>
+					<th>关联用户</th>
+					<th>执行次数</th>
+					<th>创建时间</th>
+					<th>创建人</th>
+				</tr>
+				<tbody id="mainbody"></tbody>
+			</table>
+		</div>
+		<!--分页-->
+		<div class="pagination clear pd-10 fs-14 bgc-white">
+			<div class="fr" id="mainPage"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    require(["/apps/comp/sql/sql/index.js"],function(index){index.init();});
+</script>

@@ -1,0 +1,58 @@
+<div class="min-width1200 main-padd">
+	<div class="bdt-box mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<p class="fs-20 pdl-10">sql执行</p>
+		<form action="#none" id="sql_form" class="clear fs-14 alltable-form pdt-20">
+			<div class="col-3">
+				<span class="mw mw-100 of-title">选择SQL:</span>
+				<select class="icon-select" id="btn-exec-select" style="width: 50%;">
+					<option value="0">请选择</option>
+					<option value="1">选择已有SQL</option>
+					<option value="2">自定义SQL</option>
+				</select>
+			</div>
+
+			<div class="col-3">
+				<input type="button" id="btn-execute" onclick="javascript:void(0);" value="执行" class="form-btn fb-submit" />
+			</div>
+		</form>
+	</div>
+	<div class="pd-10 clear animation-right">
+		<!-- 已有sql区域 -->
+		<div class="block-body" id='main01'></div>
+		<!-- 自定义sql区域 -->
+		<div class="block-body" id='main02'></div>
+		<div class="block-body" id='paramMain'></div>
+	</div>
+</div>
+<input type="hidden" id="noselect-id" />
+<input type="hidden" id="select-id" />
+<script type="text/javascript">
+    require(["/apps/comp/sql/exec/index.js"],function(index){index.init();});
+</script>
+
+
+
+
+
+<style>
+	.test-5::-webkit-scrollbar {
+		/*滚动条整体样式*/
+		width: 20px;
+		/*高宽分别对应横竖滚动条的尺寸*/
+		height: 20px;
+	}
+
+	.test-5::-webkit-scrollbar-thumb {
+		/*滚动条里面小方块*/
+		border-radius: 10px;
+		background-color: #F90;
+		background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	}
+
+	.test-5::-webkit-scrollbar-track {
+		/*滚动条里面轨道*/
+		-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+		/*border-radius: 10px;*/
+		background: #EDEDED;
+	}
+</style>

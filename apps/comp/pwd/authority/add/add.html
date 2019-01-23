@@ -1,0 +1,56 @@
+<!--主体内容-->
+<div class="min-width1100">
+	<div class="mg-10 mgb-0 bgc-white pd-10 animation-left" style="z-index: 9;">
+		<p class="fs-16 pdl-40 pdt-30" id="span_userName"></p>
+		<form id="addForm" class="clear fs-14 alltable-form pdt-20">
+			<input type="hidden" name="account" id="account" value="" />
+    		<div class="col-3">
+    			<span class="mw mw-100 of-title">IP地址：</span>
+    			<input type="text" id="host_ip" name="ip" />
+    		</div><div class="col-3">
+    			<span class="mw mw-100 of-title">主机用户名：</span>
+    			<input type="text" id="host_user" name="hostname" />
+    		</div>
+    		<div class="col-3 pdl-30">
+	   			<input type="button" value="查询" class="form-btn fb-submit" id="btn_add_search"/>
+	   			<input onclick="javascript:resetForm('addForm');return false;" type="reset" value="重置" class="form-btn fb-reset mgl-10"/>
+		   	</div>
+		</form>
+		
+	</div>
+	<div class="pd-10 clear animation-right">
+		<div class="alltable-link clear">
+			<ul class="fr">
+				<li>
+					<a href="#" class="link-list link-list-new" id="btn_add">添加</a>
+				</li>
+				<li>
+					<a href="#" class="link-list link-list-del" id="btn_del">删除</a>
+				</li>
+			</ul>
+		</div>
+		<div class="approval-table fs-14">
+       		<table  id="theTable">
+       			<colgroup>
+                    <col width="5%">
+                    <col width="47%">
+                    <col width="47%">
+                </colgroup>
+       			<tr>
+       				<th class="bdl-0 w-50">
+       					<label class="replace-checkbox allcheck">
+       						<input type="checkbox" />
+       						<span></span>
+       					</label>
+       				</th>
+       				<th>ip地址</th>
+					<th class="bdr-0 w-260">主机用户名</th>
+       			</tr>
+       			<tbody id="tbody_add">
+            	</tbody>
+       		</table>	
+   		</div>
+   		<!--分页-->
+   		<div class="page" id="page_add" ></div>
+	</div>
+</div>
